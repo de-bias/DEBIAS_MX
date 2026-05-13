@@ -1,0 +1,32 @@
+Package: MeasureBiasV.0.0
+Title: Measure bias
+Version: 1.0
+Authors@R: 
+    person("Juan I.", "Vilchis", , "v.i_jay68@hotmail.com", role = c("aut", "cre"))
+Description: Training an XGBoost model to predict bias
+License: MIT
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+  dplyr,
+  sf,
+  ggplot2,
+  viridis,
+  spdep,
+  sysfonts,
+  showtextdb,
+  classInt,
+  scales,
+  forcats,
+  spgwr,
+  ggthemes,
+  tmap,
+  tidyverse,
+  readr,
+  magrittr,
+  gridExtra,
+  magick,
+  patchwork,
+  showtext,
+  sysfonts

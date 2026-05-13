@@ -1,0 +1,2085 @@
+CVEGEO,NOMGEO,pop_dfd
+1001,Aguascalientes,87846
+1002,Asientos,1859
+1003,Calvillo,3532
+1004,Cosío,993
+1005,Jesús María,12570
+1006,Pabellón de Arteaga,3806
+1007,Rincón de Romos,3874
+1008,San José de Gracia,2158
+1009,Tepezalá,1408
+1010,El Llano,2314
+1011,San Francisco de los Romo,12775
+2001,Ensenada,46953
+2002,Mexicali,131350
+2003,Tecate,8165
+2004,Tijuana,215805
+2005,Playas de Rosarito,14729
+2006,San Quintín,5695
+3001,Comondú,5106
+3002,Mulegé,3676
+3003,La Paz,31130
+3008,Los Cabos,35621
+3009,Loreto,584
+4001,Calkiní,2944
+4002,Campeche,16046
+4003,Carmen,13498
+4004,Champotón,1582
+4005,Hecelchakán,1252
+4006,Hopelchén,692
+4007,Palizada,905
+4008,Tenabo,806
+4009,Escárcega,2811
+4010,Calakmul,489
+4011,Candelaria,1130
+4012,Seybaplaya,786
+5001,Abasolo,555
+5002,Acuña,6857
+5003,Allende,1369
+5004,Arteaga,8442
+5005,Candela,123
+5006,Castaños,4981
+5007,Cuatro Ciénegas,806
+5008,Escobedo,106
+5009,Francisco I. Madero,2549
+5010,Frontera,14148
+5011,General Cepeda,520
+5012,Guerrero,215
+5013,Hidalgo,69
+5014,Jiménez,1869
+5015,Juárez,176
+5016,Lamadrid,52
+5017,Matamoros,27506
+5018,Monclova,18380
+5019,Morelos,1177
+5020,Múzquiz,4775
+5021,Nadadores,1779
+5022,Nava,5533
+5023,Ocampo,197
+5024,Parras,3423
+5025,Piedras Negras,13404
+5026,Progreso,265
+5027,Ramos Arizpe,30528
+5028,Sabinas,8656
+5029,Sacramento,145
+5030,Saltillo,84435
+5031,San Buenaventura,1459
+5032,San Juan de Sabinas,3521
+5033,San Pedro,6300
+5034,Sierra Mojada,249
+5035,Torreón,39964
+5036,Viesca,2764
+5037,Villa Unión,1442
+5038,Zaragoza,3488
+6001,Armería,1179
+6002,Colima,6200
+6003,Comala,4047
+6004,Coquimatlán,2294
+6005,Cuauhtémoc,8223
+6006,Ixtlahuacán,968
+6007,Manzanillo,12468
+6008,Minatitlán,778
+6009,Tecomán,5661
+6010,Villa de Álvarez,12328
+7001,Acacoyagua,123
+7002,Acala,760
+7003,Acapetahua,889
+7004,Altamirano,194
+7005,Amatán,298
+7006,Amatenango de la Frontera,453
+7007,Amatenango del Valle,89
+7008,Ángel Albino Corzo,362
+7009,Arriaga,1935
+7010,Bejucal de Ocampo,145
+7011,Bella Vista,355
+7012,Berriozábal,3788
+7013,Bochil,948
+7014,El Bosque,116
+7015,Cacahoatán,676
+7016,Catazajá,702
+7017,Cintalapa,2416
+7018,Coapilla,106
+7019,Comitán de Domínguez,7050
+7020,La Concordia,795
+7021,Copainalá,569
+7022,Chalchihuitán,166
+7023,Chamula,1869
+7024,Chanal,92
+7025,Chapultenango,111
+7026,Chenalhó,492
+7027,Chiapa de Corzo,14900
+7029,Chicoasén,63
+7030,Chicomuselo,629
+7031,Chilón,1117
+7032,Escuintla,1004
+7033,Francisco León,139
+7034,Frontera Comalapa,2327
+7035,Frontera Hidalgo,482
+7037,Huehuetán,2491
+7038,Huixtán,710
+7039,Huitiupán,366
+7040,Huixtla,1510
+7041,La Independencia,733
+7042,Ixhuatán,78
+7043,Ixtacomitán,238
+7044,Ixtapa,2557
+7045,Ixtapangajoya,172
+7046,Jiquipilas,1224
+7047,Jitotol,352
+7048,Juárez,1795
+7049,Larráinzar,173
+7050,La Libertad,379
+7051,Mapastepec,1440
+7052,Las Margaritas,1326
+7053,Mazapa de Madero,165
+7054,Mazatán,1768
+7057,Motozintla,1574
+7059,Ocosingo,2892
+7061,Ocozocoautla de Espinosa,4880
+7062,Ostuacán,396
+7064,Oxchuc,258
+7065,Palenque,5545
+7066,Pantelhó,146
+7068,Pichucalco,1631
+7069,Pijijiapan,1532
+7070,El Porvenir,285
+7071,Villa Comaltitlán,835
+7072,Pueblo Nuevo Solistahuacán,220
+7073,Rayón,153
+7074,Reforma,2118
+7075,Las Rosas,470
+7076,Sabanilla,52
+7077,Salto de Agua,1095
+7078,San Cristóbal de las Casas,5948
+7079,San Fernando,8626
+7080,Siltepec,255
+7081,Simojovel,394
+7082,Sitalá,51
+7083,Socoltenango,671
+7084,Solosuchiapa,342
+7085,Soyaló,531
+7086,Suchiapa,1538
+7087,Suchiate,501
+7089,Tapachula,15322
+7090,Tapalapa,175
+7091,Tapilula,219
+7092,Tecpatán,418
+7093,Tenejapa,278
+7094,Teopisca,627
+7096,Tila,412
+7097,Tonalá,3685
+7098,Totolapa,208
+7099,La Trinitaria,1119
+7100,Tumbalá,305
+7101,Tuxtla Gutiérrez,35858
+7102,Tuxtla Chico,3701
+7103,Tuzantán,1012
+7104,Tzimol,1435
+7106,Venustiano Carranza,1363
+7107,Villa Corzo,2287
+7108,Villaflores,2940
+7109,Yajalón,507
+7110,San Lucas,369
+7111,Zinacantán,1559
+7112,San Juan Cancuc,52
+7114,Benemérito de las Américas,393
+7115,Maravilla Tenejapa,128
+7116,Marqués de Comillas,243
+7117,Montecristo de Guerrero,52
+7120,Capitán Luis Ángel Vidal,69
+7121,Rincón Chamula San Pedro,123
+7122,El Parral,177
+7123,Emiliano Zapata,34
+7124,Mezcalapa,503
+7125,Honduras de la Sierra,133
+8001,Ahumada,763
+8002,Aldama,5398
+8003,Allende,754
+8004,Aquiles Serdán,4875
+8005,Ascensión,1259
+8006,Bachíniva,209
+8007,Balleza,161
+8008,Batopilas de Manuel Gómez Morín,0
+8009,Bocoyna,771
+8010,Buenaventura,1099
+8011,Camargo,3876
+8012,Carichí,64
+8013,Casas Grandes,1622
+8014,Coronado,49
+8015,Coyame del Sotol,12
+8016,La Cruz,596
+8017,Cuauhtémoc,12650
+8018,Cusihuiriachi,2008
+8019,Chihuahua,106819
+8020,Chínipas,78
+8021,Delicias,6812
+8022,Dr. Belisario Domínguez,97
+8023,Galeana,229
+8024,Santa Isabel,294
+8025,Gómez Farías,290
+8026,Gran Morelos,153
+8027,Guachochi,799
+8028,Guadalupe,462
+8029,Guadalupe y Calvo,446
+8030,Guazapares,59
+8031,Guerrero,1637
+8032,Hidalgo del Parral,8121
+8033,Huejotitán,13
+8034,Ignacio Zaragoza,200
+8035,Janos,442
+8036,Jiménez,3143
+8037,Juárez,142157
+8038,Julimes,482
+8039,López,318
+8040,Madera,831
+8041,Maguarichi,0
+8042,Manuel Benavides,15
+8043,Matachí,85
+8044,Matamoros,1552
+8045,Meoqui,3913
+8046,Morelos,0
+8047,Moris,19
+8048,Namiquipa,846
+8049,Nonoava,30
+8050,Nuevo Casas Grandes,4641
+8051,Ocampo,372
+8052,Ojinaga,1475
+8053,Praxedis G. Guerrero,120
+8054,Riva Palacio,121
+8055,Rosales,5168
+8056,Rosario,32
+8057,San Francisco de Borja,39
+8058,San Francisco de Conchos,453
+8059,San Francisco del Oro,501
+8060,Santa Bárbara,1122
+8061,Satevó,117
+8062,Saucillo,3514
+8063,Temósachic,97
+8064,El Tule,50
+8065,Urique,117
+8066,Uruachi,0
+8067,Valle de Zaragoza,178
+9004,Cuajimalpa de Morelos,73223
+9007,Iztapalapa,250373
+9008,La Magdalena Contreras,34058
+9009,Milpa Alta,45198
+9010,Álvaro Obregón,132472
+9011,Tláhuac,53204
+9012,Tlalpan,97900
+9013,Xochimilco,74441
+9016,Miguel Hidalgo,158038
+9017,Venustiano Carranza,154942
+10001,Canatlán,1287
+10002,Canelas,336
+10003,Coneto de Comonfort,80
+10004,Cuencamé,1981
+10005,Durango,60120
+10006,General Simón Bolívar,71
+10007,Gómez Palacio,28488
+10008,Guadalupe Victoria,2279
+10009,Guanaceví,191
+10010,Hidalgo,53
+10011,Indé,169
+10012,Lerdo,30101
+10013,Mapimí,905
+10014,Mezquital,191
+10015,Nazas,471
+10016,Nombre de Dios,1045
+10017,Ocampo,274
+10018,El Oro,335
+10019,Otáez,40
+10020,Pánuco de Coronado,677
+10021,Peñón Blanco,385
+10022,Poanas,1198
+10023,Pueblo Nuevo,1436
+10024,Rodeo,419
+10025,San Bernardo,43
+10026,San Dimas,272
+10027,San Juan de Guadalupe,28
+10028,San Juan del Río,448
+10029,San Luis del Cordero,0
+10030,San Pedro del Gallo,34
+10031,Santa Clara,670
+10032,Santiago Papasquiaro,2409
+10033,Súchil,156
+10034,Tamazula,379
+10035,Tepehuanes,289
+10036,Tlahualilo,1046
+10037,Topia,313
+10038,Vicente Guerrero,1102
+10039,Nuevo Ideal,1054
+11001,Abasolo,4330
+11002,Acámbaro,5904
+11003,San Miguel de Allende,16861
+11004,Apaseo el Alto,13390
+11005,Apaseo el Grande,27711
+11006,Atarjea,140
+11007,Celaya,35874
+11008,Manuel Doblado,1695
+11009,Comonfort,6496
+11010,Coroneo,142
+11011,Cortazar,11687
+11012,Cuerámaro,1148
+11013,Doctor Mora,832
+11014,Dolores Hidalgo Cuna de la Independencia Nacional,10416
+11015,Guanajuato,18530
+11016,Huanímaro,1162
+11017,Irapuato,46833
+11018,Jaral del Progreso,1033
+11019,Jerécuaro,2096
+11020,León,136312
+11021,Moroleón,4437
+11022,Ocampo,924
+11023,Pénjamo,9315
+11024,Pueblo Nuevo,1221
+11025,Purísima del Rincón,8196
+11026,Romita,5337
+11027,Salamanca,19654
+11028,Salvatierra,4893
+11029,San Diego de la Unión,1566
+11030,San Felipe,4850
+11031,San Francisco del Rincón,8584
+11032,San José Iturbide,6878
+11033,San Luis de la Paz,6933
+11034,Santa Catarina,181
+11035,Santa Cruz de Juventino Rosas,7609
+11037,Silao de la Victoria,20228
+11038,Tarandacuao,433
+11039,Tarimoro,2982
+11040,Tierra Blanca,699
+11041,Uriangato,983
+11042,Valle de Santiago,9988
+11043,Victoria,1250
+11044,Villagrán,2586
+11045,Xichú,463
+11046,Yuriria,4976
+12001,Acapulco de Juárez,25964
+12002,Ahuacuotzingo,437
+12003,Ajuchitlán del Progreso,1575
+12004,Alcozauca de Guerrero,255
+12005,Alpoyeca,108
+12006,Apaxtla,402
+12007,Arcelia,925
+12008,Atenango del Río,217
+12009,Atlamajalcingo del Monte,25
+12010,Atlixtac,357
+12011,Atoyac de Álvarez,1932
+12012,Ayutla de los Libres,1067
+12013,Azoyú,427
+12014,Benito Juárez,618
+12015,Buenavista de Cuéllar,1340
+12016,Coahuayutla de José María Izazaga,147
+12017,Cocula,553
+12018,Copala,587
+12019,Copalillo,128
+12020,Copanatoyac,300
+12021,Coyuca de Benítez,5755
+12022,Coyuca de Catalán,1748
+12023,Cuajinicuilapa,771
+12024,Cualác,234
+12025,Cuautepec,338
+12026,Cuetzala del Progreso,295
+12027,Cutzamala de Pinzón,1181
+12028,Chilapa de Álvarez,2175
+12029,Chilpancingo de los Bravo,17926
+12030,Florencio Villarreal,756
+12031,General Canuto A. Neri,112
+12032,General Heliodoro Castillo,397
+12033,Huamuxtitlán,248
+12034,Huitzuco de los Figueroa,1975
+12035,Iguala de la Independencia,9290
+12036,Igualapa,487
+12037,Ixcateopan de Cuauhtémoc,563
+12038,Zihuatanejo de Azueta,6337
+12039,Juan R. Escudero,871
+12040,Leonardo Bravo,623
+12041,Malinaltepec,197
+12042,Mártir de Cuilapan,634
+12043,Metlatónoc,213
+12044,Mochitlán,1142
+12045,Olinalá,430
+12046,Ometepec,2400
+12047,Pedro Ascencio Alquisiras,147
+12048,Petatlán,2086
+12049,Pilcaya,531
+12050,Pungarabato,2306
+12051,Quechultenango,588
+12052,San Luis Acatlán,639
+12053,San Marcos,1298
+12054,San Miguel Totolapan,156
+12055,Taxco de Alarcón,6128
+12056,Tecoanapa,961
+12057,Técpan de Galeana,2836
+12058,Teloloapan,2061
+12059,Tepecoacuilco de Trujano,1566
+12060,Tetipac,899
+12061,Tixtla de Guerrero,3599
+12062,Tlacoachistlahuaca,547
+12063,Tlacoapa,93
+12064,Tlalchapa,1190
+12065,Tlalixtaquilla de Maldonado,170
+12066,Tlapa de Comonfort,3020
+12067,Tlapehuala,1044
+12068,La Unión de Isidoro Montes de Oca,3987
+12069,Xalpatláhuac,391
+12070,Xochihuehuetlán,219
+12071,Xochistlahuaca,419
+12072,Zapotitlán Tablas,98
+12073,Zirándaro,558
+12074,Zitlala,461
+12075,Eduardo Neri,8161
+12076,Acatepec,164
+12077,Marquelia,55
+12078,Cochoapa el Grande,97
+12079,José Joaquín de Herrera,77
+12080,Juchitán,200
+12081,Iliatenco,98
+13001,Acatlán,3263
+13002,Acaxochitlán,1456
+13003,Actopan,1148
+13004,Agua Blanca de Iturbide,167
+13005,Ajacuba,2707
+13006,Alfajayucan,816
+13007,Almoloya,765
+13008,Apan,2918
+13009,El Arenal,3846
+13011,Atlapexco,208
+13012,Atotonilco el Grande,1721
+13013,Atotonilco de Tula,2755
+13014,Calnali,206
+13015,Cardonal,1279
+13016,Cuautepec de Hinojosa,2835
+13017,Chapantongo,776
+13018,Chapulhuacán,512
+13019,Chilcuautla,1539
+13020,Eloxochitlán,149
+13021,Emiliano Zapata,1435
+13022,Epazoyucan,7652
+13023,Francisco I. Madero,1551
+13024,Huasca de Ocampo,2303
+13025,Huautla,817
+13026,Huazalingo,144
+13027,Huehuetla,231
+13028,Huejutla de Reyes,2299
+13029,Huichapan,3170
+13030,Ixmiquilpan,5314
+13031,Jacala de Ledezma,409
+13033,Juárez Hidalgo,42
+13034,Lolotla,400
+13035,Metepec,926
+13036,San Agustín Metzquititlán,322
+13037,Metztitlán,1003
+13038,Mineral del Chico,4719
+13040,La Misión,171
+13041,Mixquiahuala de Juárez,1462
+13042,Molango de Escamilla,330
+13043,Nicolás Flores,163
+13044,Nopala de Villagrán,1800
+13045,Omitlán de Juárez,2375
+13046,San Felipe Orizatlán,1111
+13047,Pacula,331
+13048,Pachuca de Soto,26110
+13049,Pisaflores,117
+13050,Progreso de Obregón,3275
+13051,Mineral de la Reforma,8770
+13052,San Agustín Tlaxiaca,2315
+13053,San Bartolo Tutotepec,503
+13054,San Salvador,2177
+13055,Santiago de Anaya,1098
+13056,Santiago Tulantepec de Lugo Guerrero,1948
+13057,Singuilucan,3865
+13058,Tasquillo,505
+13059,Tecozautla,1690
+13060,Tenango de Doria,488
+13061,Tepeapulco,3363
+13062,Tepehuacán de Guerrero,402
+13063,Tepeji del Río de Ocampo,9848
+13064,Tepetitlán,1359
+13066,Villa de Tezontepec,2017
+13067,Tezontepec de Aldama,2125
+13068,Tianguistengo,258
+13069,Tizayuca,14626
+13071,Tlahuiltepa,277
+13072,Tlanalapa,866
+13073,Tlanchinol,419
+13074,Tlaxcoapan,4593
+13075,Tolcayuca,4022
+13076,Tula de Allende,10658
+13077,Tulancingo de Bravo,9990
+13078,Xochiatipan,68
+13079,Xochicoatlán,378
+13080,Yahualica,108
+13081,Zacualtipán de Ángeles,1289
+13082,Zapotlán de Juárez,5279
+13083,Zempoala,4805
+13084,Zimapán,2104
+14001,Acatic,1868
+14002,Acatlán de Juárez,1689
+14003,Ahualulco de Mercado,1902
+14004,Amacueca,229
+14005,Amatitán,1750
+14006,Ameca,4266
+14007,San Juanito de Escobedo,992
+14008,Arandas,6055
+14009,El Arenal,2266
+14010,Atemajac de Brizuela,471
+14011,Atengo,293
+14012,Atenguillo,164
+14013,Atotonilco el Alto,3865
+14014,Atoyac,1109
+14015,Autlán de Navarro,4105
+14016,Ayotlán,3359
+14017,Ayutla,732
+14018,La Barca,2544
+14019,Bolaños,91
+14020,Cabo Corrientes,1446
+14021,Casimiro Castillo,1246
+14022,Cihuatlán,1971
+14023,Zapotlán el Grande,5826
+14024,Cocula,2063
+14025,Colotlán,829
+14026,Concepción de Buenos Aires,440
+14027,Cuautitlán de García Barragán,969
+14028,Cuautla,80
+14029,Cuquío,1292
+14030,Chapala,7004
+14031,Chimaltitán,81
+14032,Chiquilistlán,362
+14033,Degollado,2200
+14034,Ejutla,97
+14035,Encarnación de Díaz,4029
+14036,Etzatlán,1429
+14037,El Grullo,1551
+14038,Guachinango,365
+14039,Guadalajara,74116
+14040,Hostotipaquillo,771
+14041,Huejúcar,324
+14042,Huejuquilla el Alto,282
+14043,La Huerta,1418
+14044,Ixtlahuacán de los Membrillos,5805
+14045,Ixtlahuacán del Río,26939
+14046,Jalostotitlán,2838
+14047,Jamay,2087
+14048,Jesús María,1392
+14049,Jilotlán de los Dolores,779
+14050,Jocotepec,3561
+14051,Juanacatlán,4314
+14052,Juchitlán,130
+14053,Lagos de Moreno,13705
+14054,El Limón,155
+14055,Magdalena,744
+14056,Santa María del Oro,17
+14057,La Manzanilla de la Paz,960
+14058,Mascota,2995
+14059,Mazamitla,1442
+14060,Mexticacán,387
+14061,Mezquitic,179
+14062,Mixtlán,250
+14063,Ocotlán,1820
+14064,Ojuelos de Jalisco,851
+14065,Pihuamo,657
+14066,Poncitlán,5375
+14067,Puerto Vallarta,26641
+14068,Villa Purificación,716
+14069,Quitupan,1095
+14070,El Salto,11584
+14071,San Cristóbal de la Barranca,390
+14072,San Diego de Alejandría,1190
+14073,San Juan de los Lagos,5803
+14074,San Julián,755
+14075,San Marcos,160
+14076,San Martín de Bolaños,70
+14077,San Martín Hidalgo,1027
+14078,San Miguel el Alto,2319
+14079,Gómez Farías,2531
+14080,San Sebastián del Oeste,472
+14081,Santa María de los Ángeles,893
+14082,Sayula,2076
+14083,Tala,9814
+14084,Talpa de Allende,1548
+14085,Tamazula de Gordiano,4052
+14086,Tapalpa,1794
+14087,Tecalitlán,1093
+14088,Tecolotlán,1389
+14089,Techaluta de Montenegro,156
+14090,Tenamaxtlán,332
+14091,Teocaltiche,2615
+14092,Teocuitatlán de Corona,764
+14093,Tepatitlán de Morelos,10971
+14094,Tequila,3672
+14095,Teuchitlán,1169
+14096,Tizapán el Alto,456
+14097,Tlajomulco de Zúñiga,69871
+14098,San Pedro Tlaquepaque,89694
+14099,Tolimán,405
+14100,Tomatlán,1558
+14101,Tonalá,50779
+14102,Tonaya,230
+14103,Tonila,955
+14104,Totatiche,382
+14105,Tototlán,1310
+14106,Tuxcacuesco,486
+14107,Tuxcueca,626
+14108,Tuxpan,5584
+14109,Unión de San Antonio,8622
+14110,Unión de Tula,991
+14111,Valle de Guadalupe,420
+14112,Valle de Juárez,431
+14113,San Gabriel,2824
+14114,Villa Corona,1519
+14115,Villa Guerrero,205
+14116,Villa Hidalgo,2010
+14117,Cañadas de Obregón,435
+14118,Yahualica de González Gallo,1217
+14119,Zacoalco de Torres,2471
+14120,Zapopan,182777
+14121,Zapotiltic,1837
+14122,Zapotitlán de Vadillo,282
+14123,Zapotlán del Rey,2192
+14124,Zapotlanejo,12040
+14125,San Ignacio Cerro Gordo,578
+15001,Acambay de Ruíz Castañeda,3608
+15002,Acolman,12405
+15003,Aculco,2107
+15004,Almoloya de Alquisiras,920
+15005,Almoloya de Juárez,11993
+15007,Amanalco,393
+15008,Amatepec,919
+15009,Amecameca,3357
+15010,Apaxco,1108
+15011,Atenco,75343
+15014,Atlacomulco,3126
+15015,Atlautla,1788
+15016,Axapusco,6639
+15017,Ayapango,2809
+15018,Calimaya,11482
+15020,Coacalco de Berriozábal,66182
+15021,Coatepec Harinas,1045
+15025,Chalco,79358
+15026,Chapa de Mota,2055
+15032,Donato Guerra,457
+15033,Ecatepec de Morelos,63070
+15035,Huehuetoca,8518
+15036,Hueypoxtla,3473
+15037,Huixquilucan,20084
+15039,Ixtapaluca,20794
+15040,Ixtapan de la Sal,1489
+15041,Ixtapan del Oro,474
+15042,Ixtlahuaca,5780
+15043,Xalatlaco,4410
+15045,Jilotepec,3645
+15046,Jilotzingo,19777
+15047,Jiquipilco,6159
+15048,Jocotitlán,6818
+15050,Juchitepec,3069
+15051,Lerma,19659
+15052,Malinalco,2784
+15054,Metepec,34535
+15056,Morelos,352
+15057,Naucalpan de Juárez,156216
+15060,Nicolás Romero,27168
+15062,Ocoyoacac,20290
+15063,Ocuilan,8739
+15064,El Oro,559
+15065,Otumba,2113
+15066,Otzoloapan,166
+15067,Otzolotepec,6724
+15070,La Paz,48911
+15071,Polotitlán,903
+15073,San Antonio la Isla,9707
+15074,San Felipe del Progreso,2807
+15076,San Mateo Atenco,19462
+15077,San Simón de Guerrero,1128
+15078,Santo Tomás,196
+15079,Soyaniquilpan de Juárez,2530
+15080,Sultepec,841
+15081,Tecámac,32781
+15082,Tejupilco,3034
+15084,Temascalapa,8533
+15085,Temascalcingo,3106
+15086,Temascaltepec,1577
+15087,Temoaya,11567
+15088,Tenancingo,4201
+15090,Tenango del Valle,9827
+15092,Teotihuacán,18120
+15093,Tepetlaoxtoc,8430
+15094,Tepetlixpa,2174
+15095,Tepotzotlán,26931
+15096,Tequixquiac,6351
+15097,Texcaltitlán,640
+15099,Texcoco,205510
+15100,Tezoyuca,22276
+15101,Tianguistenco,2554
+15102,Timilpan,546
+15103,Tlalmanalco,11833
+15104,Tlalnepantla de Baz,225980
+15105,Tlatlaya,867
+15106,Toluca,35509
+15107,Tonatico,495
+15109,Tultitlán,71205
+15110,Valle de Bravo,5881
+15111,Villa de Allende,1465
+15112,Villa del Carbón,4130
+15113,Villa Guerrero,6149
+15114,Villa Victoria,2433
+15115,Xonacatlán,5770
+15116,Zacazonapan,421
+15117,Zacualpan,1296
+15118,Zinacantepec,28726
+15119,Zumpahuacán,280
+15120,Zumpango,38722
+15121,Cuautitlán Izcalli,49139
+15123,Luvianos,956
+15124,San José del Rincón,1537
+16001,Acuitzio,1164
+16002,Aguililla,527
+16003,Álvaro Obregón,1587
+16004,Angamacutiro,782
+16006,Apatzingán,7175
+16007,Aporo,362
+16008,Aquila,560
+16009,Ario,1911
+16010,Arteaga,834
+16011,Briseñas,750
+16012,Buenavista,2551
+16013,Carácuaro,272
+16014,Coahuayana,650
+16015,Coalcomán de Vázquez Pallares,1041
+16016,Coeneo,1007
+16017,Contepec,1493
+16018,Copándaro,603
+16019,Cotija,1281
+16020,Cuitzeo,1311
+16021,Charapan,452
+16022,Charo,4841
+16023,Chavinda,1223
+16024,Cherán,504
+16025,Chilchota,1978
+16026,Chinicuila,235
+16027,Chucándiro,911
+16028,Churintzio,738
+16029,Churumuco,354
+16030,Ecuandureo,3140
+16031,Epitacio Huerta,792
+16032,Erongarícuaro,676
+16033,Gabriel Zamora,863
+16034,Hidalgo,5254
+16035,La Huacana,1522
+16036,Huandacareo,569
+16037,Huaniqueo,454
+16038,Huetamo,2479
+16039,Huiramba,483
+16040,Indaparapeo,571
+16041,Irimbo,803
+16042,Ixtlán,560
+16043,Jacona,4916
+16044,Jiménez,633
+16045,Jiquilpan,4108
+16046,Juárez,352
+16047,Jungapeo,701
+16048,Lagunillas,1031
+16049,Madero,1048
+16050,Maravatío,3764
+16051,Marcos Castellanos,747
+16052,Lázaro Cárdenas,8236
+16053,Morelia,70258
+16054,Morelos,499
+16055,Múgica,2596
+16056,Nahuatzen,1278
+16057,Nocupétaro,241
+16058,Nuevo Parangaricutiro,2946
+16059,Nuevo Urecho,1165
+16062,Pajacuarán,1195
+16063,Panindícuaro,426
+16064,Parácuaro,1903
+16065,Paracho,2126
+16066,Pátzcuaro,5200
+16067,Penjamillo,858
+16068,Peribán,2758
+16069,La Piedad,6710
+16070,Purépero,1228
+16071,Puruándiro,2970
+16072,Queréndaro,955
+16073,Quiroga,1462
+16074,Cojumatlán de Régules,928
+16075,Los Reyes,4631
+16077,San Lucas,1001
+16078,Santa Ana Maya,448
+16079,Salvador Escalante,2654
+16080,Senguio,813
+16081,Susupuato,376
+16082,Tacámbaro,3404
+16083,Tancítaro,1865
+16084,Tangamandapio,1341
+16085,Tangancícuaro,2645
+16086,Tanhuato,972
+16087,Taretan,1357
+16088,Tarímbaro,13922
+16089,Tepalcatepec,1174
+16090,Tingambato,1090
+16091,Tingüindín,1044
+16092,Tiquicheo de Nicolás Romero,223
+16093,Tlalpujahua,1024
+16094,Tlazazalca,490
+16095,Tocumbo,1211
+16096,Tumbiscatío,98
+16097,Turicato,1283
+16098,Tuxpan,1556
+16099,Tuzantla,533
+16100,Tzintzuntzan,1611
+16101,Tzitzio,543
+16102,Uruapan,24540
+16103,Venustiano Carranza,3452
+16104,Villamar,1884
+16105,Vista Hermosa,2645
+16106,Yurécuaro,963
+16107,Zacapu,3726
+16108,Zamora,9978
+16109,Zináparo,319
+16110,Zinapécuaro,2820
+16111,Ziracuaretiro,1387
+16112,Zitácuaro,8252
+16113,José Sixto Verduzco,385
+17001,Amacuzac,1478
+17002,Atlatlahucan,2813
+17003,Axochiapan,949
+17004,Ayala,6191
+17005,Coatlán del Río,634
+17006,Cuautla,16737
+17007,Cuernavaca,32710
+17008,Emiliano Zapata,19952
+17009,Huitzilac,11576
+17010,Jantetelco,1270
+17012,Jojutla,5347
+17013,Jonacatepec de Leandro Valle,1390
+17014,Mazatepec,1194
+17015,Miacatlán,4330
+17016,Ocuituco,1010
+17017,Puente de Ixtla,1269
+17018,Temixco,8906
+17019,Tepalcingo,1783
+17020,Tepoztlán,8953
+17021,Tetecala,459
+17022,Tetela del Volcán,1128
+17023,Tlalnepantla,1647
+17024,Tlaltizapán de Zapata,8253
+17025,Tlaquiltenango,2323
+17026,Tlayacapan,3558
+17027,Totolapan,1398
+17028,Xochitepec,3980
+17029,Yautepec,6747
+17030,Yecapixtla,3960
+17032,Zacualpan de Amilpas,1057
+17035,Xoxocotla,2253
+18001,Acaponeta,2405
+18002,Ahuacatlán,703
+18003,Amatlán de Cañas,842
+18004,Compostela,4588
+18005,Huajicori,160
+18006,Ixtlán del Río,1361
+18007,Jala,1230
+18008,Xalisco,10736
+18009,Del Nayar,76
+18010,Rosamorada,2259
+18011,Ruíz,587
+18012,San Blas,2822
+18013,San Pedro Lagunillas,872
+18014,Santa María del Oro,1387
+18015,Santiago Ixcuintla,4457
+18016,Tecuala,1658
+18017,Tepic,38564
+18018,Tuxpan,2016
+18019,La Yesca,47
+18020,Bahía de Banderas,18794
+19001,Abasolo,4005
+19002,Agualeguas,211
+19003,Los Aldamas,58
+19004,Allende,2713
+19005,Anáhuac,1494
+19006,Apodaca,139141
+19007,Aramberri,330
+19008,Bustamante,254
+19009,Cadereyta Jiménez,32873
+19010,El Carmen,6382
+19011,Cerralvo,751
+19012,Ciénega de Flores,4050
+19013,China,911
+19014,Doctor Arroyo,1664
+19015,Doctor Coss,116
+19016,Doctor González,419
+19017,Galeana,2098
+19018,García,39287
+19019,San Pedro Garza García,34739
+19020,General Bravo,499
+19021,General Escobedo,41606
+19022,General Terán,1201
+19023,General Treviño,182
+19024,General Zaragoza,123
+19025,General Zuazua,7827
+19026,Guadalupe,105460
+19027,Los Herreras,193
+19028,Higueras,3802
+19029,Hualahuises,1263
+19030,Iturbide,151
+19031,Juárez,37733
+19032,Lampazos de Naranjo,415
+19033,Linares,7604
+19034,Marín,6597
+19035,Melchor Ocampo,111
+19036,Mier y Noriega,153
+19037,Mina,3961
+19038,Montemorelos,9137
+19039,Monterrey,147587
+19040,Parás,70
+19041,Pesquería,13194
+19042,Los Ramones,438
+19043,Rayones,149
+19044,Sabinas Hidalgo,2873
+19045,Salinas Victoria,3308
+19046,San Nicolás de los Garza,60488
+19047,Hidalgo,1375
+19048,Santa Catarina,43999
+19049,Santiago,7034
+19050,Vallecillo,271
+19051,Villaldama,1239
+20001,Abejones,46
+20002,Acatlán de Pérez Figueroa,2236
+20003,Asunción Cacalotepec,30
+20004,Asunción Cuyotepeji,171
+20005,Asunción Ixtaltepec,2757
+20006,Asunción Nochixtlán,221
+20008,Asunción Tlacolulita,0
+20009,Ayotzintepec,178
+20010,El Barrio de la Soledad,846
+20011,Calihualá,70
+20012,Candelaria Loxicha,128
+20014,Ciudad Ixtepec,912
+20015,Coatecas Altas,86
+20016,Coicoyán de las Flores,60
+20017,La Compañía,192
+20018,Concepción Buenavista,0
+20019,Concepción Pápalo,71
+20021,Cosolapa,285
+20022,Cosoltepec,41
+20023,Cuilápam de Guerrero,3676
+20024,Cuyamecalco Villa de Zaragoza,53
+20026,Chalcatongo de Hidalgo,211
+20028,Heroica Ciudad de Ejutla de Crespo,755
+20029,Eloxochitlán de Flores Magón,78
+20031,Tamazulápam del Espíritu Santo,56
+20032,Fresnillo de Trujano,37
+20033,Guadalupe Etla,3112
+20036,Guevea de Humboldt,52
+20037,Mesones Hidalgo,190
+20039,Heroica Ciudad de Huajuapan de León,3701
+20041,Huautla de Jiménez,75
+20042,Ixtlán de Juárez,225
+20043,Juchitán de Zaragoza,2120
+20044,Loma Bonita,1697
+20045,Magdalena Apasco,941
+20046,Magdalena Jaltepec,82
+20048,Magdalena Mixtepec,458
+20050,Magdalena Peñasco,59
+20052,Magdalena Tequisistlán,140
+20053,Magdalena Tlacotepec,267
+20055,Mariscala de Juárez,110
+20057,Matías Romero Avendaño,1688
+20058,Mazatlán Villa de Flores,98
+20059,Miahuatlán de Porfirio Díaz,920
+20060,Mixistlán de la Reforma,28
+20061,Monjas,720
+20064,Nejapa de Madero,134
+20066,Santiago Niltepec,265
+20067,Oaxaca de Juárez,16481
+20068,Ocotlán de Morelos,648
+20070,Pinotepa de Don Luis,232
+20071,Pluma Hidalgo,83
+20072,San José del Progreso,184
+20073,Putla Villa de Guerrero,1062
+20075,Reforma de Pineda,89
+20076,La Reforma,87
+20079,Salina Cruz,2753
+20080,San Agustín Amatengo,78
+20082,San Agustín Chayuco,128
+20084,San Agustín Etla,3298
+20085,San Agustín Loxicha,81
+20086,San Agustín Tlacotepec,65
+20088,San Andrés Cabecera Nueva,84
+20089,San Andrés Dinicuiti,199
+20090,San Andrés Huaxpaltepec,504
+20093,San Andrés Lagunas,49
+20094,San Andrés Nuxiño,30
+20097,San Andrés Solaga,62
+20098,San Andrés Teotilálpam,36
+20099,San Andrés Tepetlapa,51
+20100,San Andrés Yaá,27
+20102,San Andrés Zautla,882
+20104,San Antonino el Alto,31
+20105,San Antonino Monte Verde,45
+20108,San Antonio Huitepec,35
+20109,San Antonio Nanahuatípam,121
+20113,San Baltazar Loxicha,54
+20117,San Bartolomé Loxicha,63
+20119,San Bartolomé Yucuañe,40
+20121,San Bartolo Soyaltepec,30
+20122,San Bartolo Yautepec,0
+20123,San Bernardo Mixtepec,267
+20124,San Blas Atempa,1271
+20125,San Carlos Yautepec,99
+20126,San Cristóbal Amatlán,26
+20127,San Cristóbal Amoltepec,191
+20130,San Dionisio del Mar,333
+20131,San Dionisio Ocotepec,203
+20133,San Esteban Atatlahuca,97
+20134,San Felipe Jalapa de Díaz,106
+20135,San Felipe Tejalápam,1050
+20136,San Felipe Usila,164
+20137,San Francisco Cahuacuá,41
+20138,San Francisco Cajonos,64
+20141,San Francisco del Mar,430
+20143,San Francisco Ixhuatán,78
+20146,San Francisco Logueche,39
+20147,San Francisco Nuxaño,80
+20148,San Francisco Ozolotepec,18
+20149,San Francisco Sola,38
+20150,San Francisco Telixtlahuaca,145
+20151,San Francisco Teopan,12
+20152,San Francisco Tlapancingo,30
+20153,San Gabriel Mixtepec,211
+20154,San Ildefonso Amatlán,58
+20156,San Ildefonso Villa Alta,41
+20159,San Jerónimo Coatlán,128
+20161,San Jerónimo Sosola,43
+20162,San Jerónimo Taviche,78
+20166,San José Chiltepec,555
+20169,San José Independencia,27
+20170,San José Lachiguiri,24
+20171,San José Tenango,146
+20172,San Juan Achiutla,41
+20173,San Juan Atepec,37
+20175,San Juan Bautista Atatlahuca,35
+20176,San Juan Bautista Coixtlahuaca,42
+20177,San Juan Bautista Cuicatlán,120
+20179,San Juan Bautista Jayacatlán,35
+20183,San Juan Bautista Tlachichilco,32
+20184,San Juan Bautista Tuxtepec,7436
+20185,San Juan Cacahuatepec,248
+20186,San Juan Cieneguilla,53
+20187,San Juan Coatzóspam,69
+20189,San Juan Comaltepec,17
+20190,San Juan Cotzocón,440
+20193,San Juan del Estado,138
+20198,San Juan Guichicovi,878
+20199,San Juan Ihualtepec,27
+20200,San Juan Juquila Mixes,39
+20201,San Juan Juquila Vijanos,66
+20202,San Juan Lachao,236
+20203,San Juan Lachigalla,37
+20204,San Juan Lajarcia,18
+20205,San Juan Lalana,130
+20206,San Juan de los Cués,78
+20207,San Juan Mazatlán,178
+20208,San Juan Mixtepec,445
+20210,San Juan Ñumí,132
+20211,San Juan Ozolotepec,14
+20212,San Juan Petlapa,33
+20213,San Juan Quiahije,98
+20214,San Juan Quiotepec,0
+20217,San Juan Tamazola,58
+20218,San Juan Teita,20
+20220,San Juan Tepeuxila,12
+20221,San Juan Teposcolula,36
+20222,San Juan Yaeé,37
+20225,San Lorenzo,110
+20226,San Lorenzo Albarradas,120
+20227,San Lorenzo Cacaotepec,5059
+20229,San Lorenzo Texmelúcan,35
+20231,San Lucas Camotlán,12
+20232,San Lucas Ojitlán,457
+20233,San Lucas Quiaviní,180
+20234,San Lucas Zoquiápam,89
+20235,San Luis Amatlán,108
+20237,San Marcos Arteaga,89
+20242,San Martín Peras,94
+20244,San Martín Toxpalan,292
+20250,San Mateo Etlatongo,538
+20253,San Mateo Piñas,78
+20254,San Mateo Río Hondo,161
+20255,San Mateo Sindihui,33
+20259,San Miguel Ahuehuetitlán,83
+20260,San Miguel Aloápam,29
+20261,San Miguel Amatitlán,136
+20262,San Miguel Amatlán,188
+20263,San Miguel Coatlán,42
+20265,San Miguel Chimalapa,208
+20266,San Miguel del Puerto,421
+20269,San Miguel el Grande,90
+20270,San Miguel Huautla,10
+20271,San Miguel Mixtepec,51
+20272,San Miguel Panixtlahuaca,181
+20273,San Miguel Peras,101
+20275,San Miguel Quetzaltepec,39
+20277,Villa Sola de Vega,357
+20278,San Miguel Soyaltepec,775
+20279,San Miguel Suchixtepec,45
+20282,San Miguel Tenango,0
+20283,San Miguel Tequixtepec,56
+20284,San Miguel Tilquiápam,164
+20285,San Miguel Tlacamama,445
+20286,San Miguel Tlacotepec,103
+20287,San Miguel Tulancingo,22
+20288,San Miguel Yotao,44
+20290,San Nicolás Hidalgo,65
+20291,San Pablo Coatlán,60
+20292,San Pablo Cuatro Venados,815
+20294,San Pablo Huitzo,815
+20296,San Pablo Macuiltianguis,38
+20297,San Pablo Tijaltepec,90
+20298,San Pablo Villa de Mitla,433
+20300,San Pedro Amuzgos,180
+20302,San Pedro Atoyac,102
+20304,San Pedro Coxcaltepec Cántaros,50
+20306,San Pedro el Alto,32
+20307,San Pedro Huamelula,187
+20308,San Pedro Huilotepec,713
+20309,San Pedro Ixcatlán,53
+20313,San Pedro Jocotipac,27
+20316,San Pedro Mártir Quiechapa,41
+20317,San Pedro Mártir Yucuxaco,90
+20318,San Pedro Mixtepec,1398
+20319,San Pedro Mixtepec,13
+20321,San Pedro Nopala,102
+20324,San Pedro Pochutla,1092
+20325,San Pedro Quiatoni,193
+20326,San Pedro Sochiápam,50
+20327,San Pedro Tapanatepec,1018
+20329,San Pedro Teozacoalco,22
+20330,San Pedro Teutila,91
+20332,San Pedro Topiltepec,124
+20333,San Pedro Totolápam,170
+20334,Villa de Tututepec,1362
+20335,San Pedro Yaneri,28
+20336,San Pedro Yólox,84
+20337,San Pedro y San Pablo Ayutla,132
+20339,San Pedro y San Pablo Teposcolula,198
+20340,San Pedro y San Pablo Tequixtepec,54
+20344,San Sebastián Coatlán,59
+20345,San Sebastián Ixcapa,99
+20346,San Sebastián Nicananduta,83
+20348,San Sebastián Tecomaxtlahuaca,629
+20349,San Sebastián Teitipac,1493
+20353,Santa Ana,155
+20355,Santa Ana Cuauhtémoc,69
+20356,Santa Ana del Valle,518
+20357,Santa Ana Tavela,46
+20358,Santa Ana Tlapacoyan,150
+20360,Santa Ana Zegache,913
+20363,Santa Catarina Ixtepeji,2178
+20364,Santa Catarina Juquila,652
+20366,Santa Catarina Loxicha,34
+20367,Santa Catarina Mechoacán,149
+20372,Santa Catarina Yosonotú,77
+20373,Santa Catarina Zapoquila,13
+20377,Santa Cruz Itundujia,229
+20385,Santa Cruz Xoxocotlán,11476
+20386,Santa Cruz Zenzontepec,212
+20391,Santa Lucía Miahuatlán,41
+20392,Santa Lucía Monteverde,126
+20394,Santa María Alotepec,45
+20395,Santa María Apazco,13
+20396,Santa María la Asunción,259
+20397,Heroica Ciudad de Tlaxiaco,1451
+20398,Ayoquezco de Aldama,69
+20400,Santa María Camotlán,402
+20401,Santa María Colotepec,879
+20402,Santa María Cortijo,60
+20405,Villa de Chilapa de Díaz,162
+20406,Santa María Chilchotla,126
+20407,Santa María Chimalapa,107
+20408,Santa María del Rosario,108
+20410,Santa María Ecatepec,12
+20412,Santa María Guienagati,56
+20413,Santa María Huatulco,1507
+20414,Santa María Huazolotitlán,527
+20415,Santa María Ipalapa,90
+20416,Santa María Ixcatlán,16
+20417,Santa María Jacatepec,164
+20418,Santa María Jalapa del Marqués,440
+20419,Santa María Jaltianguis,54
+20421,Santa María Mixtequilla,562
+20423,Santa María Nduayaco,40
+20424,Santa María Ozolotepec,19
+20425,Santa María Pápalo,15
+20426,Santa María Peñoles,150
+20427,Santa María Petapa,437
+20428,Santa María Quiegolani,0
+20431,Santa María Tecomavaca,169
+20434,Santa María Teopoxco,75
+20435,Santa María Tepantlali,39
+20436,Santa María Texcatitlán,18
+20437,Santa María Tlahuitoltepec,94
+20438,Santa María Tlalixtac,47
+20439,Santa María Tonameca,925
+20440,Santa María Totolapilla,0
+20441,Santa María Xadani,632
+20442,Santa María Yalina,44
+20443,Santa María Yavesía,32
+20445,Santa María Yosoyúa,70
+20446,Santa María Yucuhiti,108
+20447,Santa María Zacatepec,384
+20448,Santa María Zaniza,21
+20449,Santa María Zoquitlán,126
+20450,Santiago Amoltepec,104
+20451,Santiago Apoala,13
+20453,Santiago Astata,27
+20454,Santiago Atitlán,28
+20455,Santiago Ayuquililla,120
+20457,Santiago Camotlán,83
+20458,Santiago Comaltepec,42
+20459,Villa de Santiago Chazumba,102
+20460,Santiago Choápam,44
+20462,Santiago Huajolotitlán,356
+20463,Santiago Huauclilla,38
+20464,Santiago Ihuitlán Plumas,18
+20465,Santiago Ixcuintepec,11
+20466,Santiago Ixtayutla,140
+20467,Santiago Jamiltepec,471
+20468,Santiago Jocotepec,212
+20469,Santiago Juxtlahuaca,579
+20470,Santiago Lachiguiri,60
+20472,Santiago Laollaga,271
+20474,Santiago Llano Grande,183
+20475,Santiago Matatlán,186
+20476,Santiago Miltepec,35
+20477,Santiago Minas,51
+20478,Santiago Nacaltepec,38
+20480,Santiago Nundiche,192
+20482,Santiago Pinotepa Nacional,1820
+20484,Santiago Tamazola,54
+20485,Santiago Tapextla,42
+20486,Villa Tejúpam de la Unión,102
+20487,Santiago Tenango,212
+20489,Santiago Tetepec,85
+20491,Santiago Textitlán,36
+20492,Santiago Tilantongo,52
+20494,Santiago Tlazoyaltepec,91
+20495,Santiago Xanica,37
+20496,Santiago Xiacuí,43
+20498,Santiago Yaveo,210
+20500,Santiago Yosondúa,212
+20501,Santiago Yucuyachi,34
+20502,Santiago Zacatepec,23
+20504,Nuevo Zoquiápam,366
+20505,Santo Domingo Ingenio,355
+20506,Santo Domingo Albarradas,29
+20507,Santo Domingo Armenta,60
+20508,Santo Domingo Chihuitán,553
+20509,Santo Domingo de Morelos,77
+20510,Santo Domingo Ixcatlán,61
+20511,Santo Domingo Nuxaá,23
+20512,Santo Domingo Ozolotepec,49
+20513,Santo Domingo Petapa,167
+20515,Santo Domingo Tehuantepec,4884
+20516,Santo Domingo Teojomulco,93
+20517,Santo Domingo Tepuxtepec,34
+20520,Santo Domingo Tonalá,188
+20521,Santo Domingo Tonaltepec,35
+20523,Santo Domingo Yanhuitlán,97
+20525,Santo Domingo Zanatepec,448
+20526,Santos Reyes Nopala,325
+20528,Santos Reyes Tepejillo,53
+20529,Santos Reyes Yucuná,129
+20530,Santo Tomás Jalieza,599
+20532,Santo Tomás Ocotepec,85
+20533,Santo Tomás Tamazulapan,144
+20534,San Vicente Coatlán,34
+20535,San Vicente Lachixío,18
+20536,San Vicente Nuñú,38
+20537,Silacayoápam,294
+20540,Villa de Tamazulápam del Progreso,244
+20543,Tataltepec de Valdés,116
+20544,Teococuilco de Marcos Pérez,770
+20545,Teotitlán de Flores Magón,76
+20548,Tepelmeme Villa de Morelos,49
+20549,"Heroica Villa Tezoatlán de Segura y Luna, Cuna de la Independencia de Oaxaca",735
+20550,San Jerónimo Tlacochahuaya,1202
+20551,Tlacolula de Matamoros,704
+20553,Tlalixtac de Cabrera,4267
+20554,Totontepec Villa de Morelos,70
+20555,Trinidad Zaachila,1595
+20557,Unión Hidalgo,541
+20558,Valerio Trujano,132
+20559,San Juan Bautista Valle Nacional,503
+20560,Villa Díaz Ordaz,393
+20561,Yaxe,36
+20563,Yogana,56
+20565,Villa de Zaachila,3465
+20566,San Mateo Yucutindoo,35
+20567,Zapotitlán Lagunas,236
+20569,Santa Inés de Zaragoza,27
+20570,Zimatlán de Álvarez,1463
+21001,Acajete,4534
+21002,Acateno,245
+21003,Acatlán,1626
+21004,Acatzingo,1362
+21005,Acteopan,325
+21006,Ahuacatlán,332
+21007,Ahuatlán,222
+21008,Ahuazotepec,576
+21010,Ajalpan,2939
+21011,Albino Zertuche,61
+21012,Aljojuca,305
+21015,Amozoc,10974
+21016,Aquixtla,946
+21018,Atexcal,257
+21019,Atlixco,11785
+21022,Atzitzihuacán,479
+21023,Atzitzintla,239
+21024,Axutla,131
+21025,Ayotoxco de Guerrero,179
+21026,Calpan,1917
+21027,Caltepec,108
+21031,Coatzingo,83
+21032,Cohetzala,114
+21035,Coxcatlán,518
+21036,Coyomeapan,199
+21037,Coyotepec,120
+21039,Cuautempan,186
+21040,Cuautinchán,2952
+21042,Cuayuca de Andrade,51
+21043,Cuetzalan del Progreso,664
+21044,Cuyoaco,747
+21045,Chalchicomula de Sesma,1925
+21046,Chapulco,815
+21047,Chiautla,949
+21048,Chiautzingo,3241
+21049,Chiconcuautla,423
+21050,Chichiquila,334
+21051,Chietla,2301
+21053,Chignahuapan,3053
+21054,Chignautla,1231
+21055,Chila,161
+21056,Chila de la Sal,120
+21057,Honey,366
+21058,Chilchotla,352
+21061,Eloxochitlán,134
+21062,Epatlán,473
+21063,Esperanza,410
+21064,Francisco Z. Mena,439
+21065,General Felipe Ángeles,826
+21066,Guadalupe,215
+21067,Guadalupe Victoria,605
+21069,Huaquechula,1318
+21070,Huatlatlauca,175
+21071,Huauchinango,3963
+21072,Huehuetla,241
+21073,Huehuetlán el Chico,530
+21074,Huejotzingo,12105
+21076,Hueytamalco,1614
+21077,Hueytlalpan,202
+21078,Huitzilan de Serdán,200
+21079,Huitziltepec,525
+21081,Ixcamilpa de Guerrero,72
+21082,Ixcaquixtla,89
+21083,Ixtacamaxtitlán,506
+21085,Izúcar de Matamoros,3305
+21086,Jalpan,258
+21087,Jolalpan,216
+21089,Jopala,266
+21092,Juan N. Méndez,202
+21093,Lafragua,257
+21094,Libres,1503
+21096,Mazapiltepec de Juárez,833
+21098,Molcaxac,289
+21099,Cañada Morelos,495
+21101,Nauzontla,420
+21103,Nicolás Bravo,448
+21104,Nopalucan,1467
+21106,Ocoyucan,9917
+21107,Olintla,143
+21108,Oriental,820
+21109,Pahuatlán,502
+21110,Palmar de Bravo,1700
+21111,Pantepec,354
+21112,Petlalcingo,337
+21113,Piaxtla,427
+21114,Puebla,154168
+21115,Quecholac,1988
+21116,Quimixtlán,445
+21119,San Andrés Cholula,21631
+21120,San Antonio Cañada,427
+21121,San Diego la Mesa Tochimiltzingo,377
+21123,San Felipe Tepatlán,127
+21124,San Gabriel Chilac,2092
+21126,San Jerónimo Tecuanipan,5905
+21127,San Jerónimo Xayacatlán,250
+21128,San José Chiapa,1308
+21129,San José Miahuatlán,1110
+21130,San Juan Atenco,411
+21132,San Martín Texmelucan,6267
+21134,San Matías Tlalancaleca,1860
+21135,San Miguel Ixitlán,45
+21137,San Nicolás Buenos Aires,327
+21138,San Nicolás de los Ranchos,469
+21141,San Pedro Yeloixtlahuaca,54
+21142,San Salvador el Seco,714
+21143,San Salvador el Verde,4853
+21144,San Salvador Huixcolotla,2380
+21145,San Sebastián Tlacotepec,137
+21147,Santa Inés Ahuatempan,173
+21149,Santiago Miahuatlán,3572
+21150,Huehuetlán el Grande,290
+21152,Soltepec,496
+21153,Tecali de Herrera,2342
+21154,Tecamachalco,3178
+21155,Tecomatlán,256
+21156,Tehuacán,14102
+21157,Tehuitzingo,477
+21158,Tenampulco,206
+21159,Teopantlán,777
+21160,Teotlalco,192
+21161,Tepanco de López,2345
+21162,Tepango de Rodríguez,172
+21164,Tepeaca,3767
+21166,Tepeojuma,1456
+21167,Tepetzintla,408
+21169,Tepexi de Rodríguez,600
+21170,Tepeyahualco,534
+21172,Tetela de Ocampo,931
+21174,Teziutlán,3101
+21175,Tianguismanalco,1883
+21176,Tilapa,682
+21177,Tlacotepec de Benito Juárez,1795
+21178,Tlacuilotepec,438
+21179,Tlachichuca,838
+21180,Tlahuapan,2847
+21182,Tlanepantla,1399
+21183,Tlaola,1235
+21184,Tlapacoya,216
+21185,Tlapanalá,466
+21186,Tlatlauquitepec,2704
+21187,Tlaxco,177
+21188,Tochimilco,1596
+21190,Totoltepec de Guerrero,100
+21191,Tulcingo,307
+21192,Tuzamapan de Galeana,190
+21193,Tzicatlacoyan,3528
+21194,Venustiano Carranza,1129
+21195,Vicente Guerrero,393
+21196,Xayacatlán de Bravo,116
+21197,Xicotepec,2368
+21198,Xicotlán,58
+21199,Xiutetelco,2718
+21201,Xochiltepec,128
+21202,Xochitlán de Vicente Suárez,200
+21203,Xochitlán Todos Santos,847
+21204,Yaonáhuac,560
+21205,Yehualtepec,1172
+21206,Zacapala,544
+21207,Zacapoaxtla,1365
+21208,Zacatlán,4272
+21209,Zapotitlán,2843
+21212,Zautla,530
+21213,Zihuateutla,576
+21216,Zoquiapan,229
+21217,Zoquitlán,209
+22001,Amealco de Bonfil,1995
+22002,Pinal de Amoles,1024
+22003,Arroyo Seco,459
+22004,Cadereyta de Montes,3258
+22005,Colón,5987
+22006,Corregidora,16817
+22007,Ezequiel Montes,2877
+22008,Huimilpan,11268
+22009,Jalpan de Serra,1818
+22010,Landa de Matamoros,502
+22011,El Marqués,41583
+22012,Pedro Escobedo,4403
+22013,Peñamiller,620
+22014,Querétaro,86786
+22015,San Joaquín,235
+22016,San Juan del Río,22037
+22017,Tequisquiapan,5661
+22018,Tolimán,854
+23001,Cozumel,3103
+23002,Felipe Carrillo Puerto,3493
+23003,Isla Mujeres,13017
+23004,Othón P. Blanco,17437
+23005,Benito Juárez,72772
+23006,José María Morelos,1139
+23007,Lázaro Cárdenas,2270
+23008,Solidaridad,37444
+23009,Tulum,6132
+23010,Bacalar,882
+23011,Puerto Morelos,3372
+24001,Ahualulco,851
+24002,Alaquines,362
+24003,Aquismón,1348
+24004,Armadillo de los Infante,985
+24005,Cárdenas,720
+24006,Catorce,594
+24007,Cedral,2002
+24008,Cerritos,1101
+24009,Cerro de San Pedro,1147
+24010,Ciudad del Maíz,889
+24011,Ciudad Fernández,1001
+24012,Tancanhuitz,424
+24013,Ciudad Valles,13441
+24014,Coxcatlán,212
+24015,Charcas,905
+24016,Ebano,1387
+24017,Guadalcázar,774
+24019,Lagunillas,171
+24020,Matehuala,4927
+24021,Mexquitic de Carmona,17384
+24022,Moctezuma,494
+24023,Rayón,893
+24024,Rioverde,9644
+24025,Salinas,1203
+24026,San Antonio,49
+24027,San Ciro de Acosta,394
+24028,San Luis Potosí,115295
+24029,San Martín Chalchicuautla,509
+24030,San Nicolás Tolentino,153
+24031,Santa Catarina,121
+24032,Santa María del Río,1647
+24033,Santo Domingo,267
+24034,San Vicente Tancuayalab,431
+24035,Soledad de Graciano Sánchez,5976
+24036,Tamasopo,1065
+24037,Tamazunchale,1468
+24038,Tampacán,484
+24039,Tampamolón Corona,313
+24040,Tamuín,2161
+24041,Tanlajás,428
+24042,Tanquián de Escobedo,292
+24043,Tierra Nueva,216
+24044,Vanegas,278
+24045,Venado,472
+24046,Villa de Arriaga,1369
+24047,Villa de Guadalupe,640
+24048,Villa de la Paz,3270
+24049,Villa de Ramos,1412
+24050,Villa de Reyes,6275
+24051,Villa Hidalgo,766
+24052,Villa Juárez,319
+24053,Axtla de Terrazas,893
+24054,Xilitla,993
+24055,Zaragoza,1672
+24056,Villa de Arista,476
+24057,Matlapa,696
+24058,El Naranjo,750
+25001,Ahome,35493
+25002,Angostura,2309
+25003,Badiraguato,451
+25004,Concordia,1714
+25005,Cosalá,436
+25006,Culiacán,81876
+25007,Choix,649
+25008,Elota,1755
+25009,Escuinapa,2892
+25010,El Fuerte,4720
+25011,Guasave,15835
+25012,Mazatlán,37486
+25013,Mocorito,2345
+25014,Rosario,2525
+25015,Salvador Alvarado,3850
+25016,San Ignacio,644
+25017,Sinaloa,3340
+25018,Navolato,10516
+26001,Aconchi,135
+26002,Agua Prieta,7496
+26003,Álamos,1067
+26004,Altar,622
+26005,Arivechi,10
+26006,Arizpe,221
+26007,Atil,22
+26008,Bacadéhuachi,13
+26009,Bacanora,19
+26010,Bacerac,20
+26011,Bacoachi,57
+26012,Bácum,1868
+26013,Banámichi,138
+26014,Baviácora,103
+26015,Bavispe,31
+26016,Benjamín Hill,486
+26017,Caborca,6684
+26018,Cajeme,41221
+26019,Cananea,4378
+26020,Carbó,285
+26021,La Colorada,411
+26022,Cucurpe,17
+26023,Cumpas,508
+26024,Divisaderos,14
+26025,Empalme,3303
+26026,Etchojoa,3046
+26027,Fronteras,562
+26028,Granados,0
+26029,Guaymas,12083
+26030,Hermosillo,106803
+26031,Huachinera,11
+26032,Huásabas,58
+26033,Huatabampo,3184
+26034,Huépac,75
+26035,Imuris,1194
+26036,Magdalena,2832
+26037,Mazatán,42
+26038,Moctezuma,419
+26039,Naco,713
+26040,Nácori Chico,13
+26041,Nacozari de García,1268
+26042,Navojoa,10641
+26043,Nogales,25163
+26044,Ónavas,0
+26045,Opodepe,171
+26046,Oquitoa,93
+26047,Pitiquito,2956
+26048,Puerto Peñasco,5524
+26049,Quiriego,929
+26050,Rayón,39
+26051,Rosario,122
+26052,Sahuaripa,303
+26053,San Felipe de Jesús,44
+26054,San Javier,19
+26055,San Luis Río Colorado,19377
+26056,San Miguel de Horcasitas,494
+26057,San Pedro de la Cueva,41
+26058,Santa Ana,1575
+26059,Santa Cruz,257
+26060,Sáric,44
+26061,Soyopa,13
+26062,Suaqui Grande,25
+26063,Tepache,19
+26064,Trincheras,57
+26065,Tubutama,26
+26066,Ures,545
+26067,Villa Hidalgo,42
+26068,Villa Pesqueira,14
+26069,Yécora,126
+26070,General Plutarco Elías Calles,965
+26071,Benito Juárez,670
+26072,San Ignacio Río Muerto,581
+27001,Balancán,1784
+27002,Cárdenas,7643
+27003,Centla,3208
+27004,Centro,47251
+27005,Comalcalco,10597
+27006,Cunduacán,5521
+27007,Emiliano Zapata,543
+27008,Huimanguillo,9847
+27009,Jalapa,2489
+27010,Jalpa de Méndez,5047
+27011,Jonuta,492
+27012,Macuspana,5573
+27013,Nacajuca,5884
+27014,Paraíso,4692
+27015,Tacotalpa,1077
+27016,Teapa,2404
+27017,Tenosique,2356
+28001,Abasolo,448
+28002,Aldama,1958
+28003,Altamira,20837
+28004,Antiguo Morelos,1245
+28005,Burgos,128
+28006,Bustamante,80
+28007,Camargo,2466
+28008,Casas,112
+28010,Cruillas,30
+28011,Gómez Farías,516
+28012,González,2645
+28013,Güémez,3628
+28014,Guerrero,775
+28015,Gustavo Díaz Ordaz,2067
+28016,Hidalgo,641
+28017,Jaumave,1194
+28018,Jiménez,409
+28019,Llera,742
+28020,Mainero,106
+28021,El Mante,7173
+28022,Matamoros,59873
+28023,Méndez,139
+28024,Mier,751
+28025,Miguel Alemán,3205
+28026,Miquihuana,40
+28027,Nuevo Laredo,52556
+28028,Nuevo Morelos,275
+28029,Ocampo,848
+28030,Padilla,810
+28031,Palmillas,64
+28032,Reynosa,70565
+28033,Río Bravo,12549
+28034,San Carlos,77
+28035,San Fernando,3512
+28036,San Nicolás,0
+28037,Soto la Marina,1272
+28038,Tampico,45358
+28039,Tula,972
+28040,Valle Hermoso,4797
+28041,Victoria,33940
+28042,Villagrán,235
+28043,Xicoténcatl,1700
+29003,Atlangatepec,2425
+29004,Atltzayanca,659
+29006,Calpulalpan,2223
+29007,El Carmen Tequexquitla,541
+29008,Cuapiaxtla,446
+29010,Chiautempan,3778
+29012,Españita,1344
+29013,Huamantla,3750
+29014,Hueyotlipan,2281
+29015,Ixtacuixtla de Mariano Matamoros,5814
+29020,Sanctórum de Lázaro Cárdenas,778
+29021,Nanacamilpa de Mariano Arista,1313
+29023,Natívitas,5366
+29025,San Pablo del Monte,6316
+29026,Santa Cruz Tlaxcala,4650
+29030,Terrenate,1155
+29031,Tetla de la Solidaridad,7531
+29033,Tlaxcala,8195
+29034,Tlaxco,1999
+29037,Ziltlaltépec de Trinidad Sánchez Santos,827
+29039,Xaloztoc,2088
+29040,Xaltocan,2899
+29045,Benito Juárez,455
+29046,Emiliano Zapata,140
+29050,San Francisco Tetlanohcan,1344
+29052,San José Teacalco,1853
+29058,Santa Catarina Ayometla,13309
+30003,Acayucan,2088
+30004,Actopan,2611
+30005,Acula,192
+30006,Acultzingo,1435
+30007,Camarón de Tejeda,285
+30008,Alpatláhuac,950
+30009,Alto Lucero de Gutiérrez Barrios,1836
+30010,Altotonga,2184
+30011,Alvarado,3666
+30012,Amatitlán,495
+30013,Naranjos Amatlán,1121
+30014,Amatlán de los Reyes,4819
+30015,Angel R. Cabada,1564
+30016,La Antigua,2321
+30017,Apazapan,384
+30020,Atlahuilco,569
+30021,Atoyac,1973
+30022,Atzacan,2563
+30023,Atzalan,2870
+30024,Tlaltetela,1105
+30025,Ayahualulco,427
+30027,Benito Juárez,289
+30028,Boca del Río,10706
+30031,Carrillo Puerto,819
+30032,Catemaco,1018
+30033,Cazones de Herrera,1128
+30034,Cerro Azul,798
+30035,Citlaltépetl,259
+30037,Coahuitlán,284
+30038,Coatepec,5511
+30039,Coatzacoalcos,3428
+30040,Coatzintla,1521
+30042,Colipa,271
+30043,Comapa,522
+30044,Córdoba,7387
+30045,Cosamaloapan de Carpio,2583
+30046,Cosautlán de Carvajal,1245
+30047,Coscomatepec,2197
+30048,Cosoleacaque,16952
+30049,Cotaxtla,1405
+30050,Coxquihui,669
+30051,Coyutla,1043
+30052,Cuichapa,905
+30053,Cuitláhuac,640
+30054,Chacaltianguis,726
+30055,Chalma,2677
+30057,Chiconquiaco,418
+30058,Chicontepec,948
+30059,Chinameca,1986
+30060,Chinampa de Gorostiza,184
+30061,Las Choapas,1623
+30063,Chontla,222
+30065,Emiliano Zapata,8281
+30066,Espinal,509
+30067,Filomeno Mata,188
+30068,Fortín,5045
+30069,Gutiérrez Zamora,1027
+30070,Hidalgotitlán,457
+30071,Huatusco,2013
+30072,Huayacocotla,408
+30073,Hueyapan de Ocampo,1020
+30075,Ignacio de la Llave,558
+30076,Ilamatlán,54
+30077,Isla,1853
+30078,Ixcatepec,108
+30079,Ixhuacán de los Reyes,738
+30080,Ixhuatlán del Café,838
+30082,Ixhuatlán del Sureste,4778
+30083,Ixhuatlán de Madero,590
+30084,Ixmatlahuacan,468
+30087,Xalapa,18590
+30089,Jáltipan,1879
+30090,Jamapa,3494
+30091,Jesús Carranza,782
+30092,Xico,5311
+30093,Jilotepec,7607
+30094,Juan Rodríguez Clara,1650
+30095,Juchique de Ferrer,331
+30097,Lerdo de Tejada,195
+30099,Maltrata,976
+30100,Manlio Fabio Altamirano,4957
+30101,Mariano Escobedo,1892
+30102,Martínez de la Torre,5275
+30104,Mecayapan,334
+30105,Medellín de Bravo,13324
+30107,Las Minas,337
+30108,Minatitlán,8646
+30109,Misantla,2252
+30110,Mixtla de Altamirano,111
+30111,Moloacán,1131
+30112,Naolinco,4310
+30114,Nautla,1151
+30115,Nogales,2378
+30116,Oluta,1934
+30117,Omealca,1824
+30118,Orizaba,8844
+30119,Otatitlán,504
+30121,Ozuluama de Mascareñas,882
+30122,Pajapan,2158
+30123,Pánuco,12357
+30124,Papantla,16315
+30125,Paso del Macho,1349
+30126,Paso de Ovejas,3495
+30127,La Perla,177
+30128,Perote,3487
+30129,Platón Sánchez,538
+30130,Playa Vicente,1064
+30131,Poza Rica de Hidalgo,9072
+30132,Las Vigas de Ramírez,1511
+30133,Pueblo Viejo,4991
+30134,Puente Nacional,1337
+30136,Rafael Lucio,3418
+30138,Río Blanco,3977
+30139,Saltabarranca,989
+30140,San Andrés Tenejapan,2159
+30141,San Andrés Tuxtla,5469
+30142,San Juan Evangelista,1235
+30143,Santiago Tuxtla,1831
+30144,Sayula de Alemán,957
+30145,Soconusco,446
+30147,Soledad Atzompa,532
+30148,Soledad de Doblado,1154
+30149,Soteapan,447
+30150,Tamalín,137
+30151,Tamiahua,1089
+30152,Tampico Alto,1349
+30153,Tancoco,285
+30154,Tantima,500
+30155,Tantoyuca,2489
+30156,Tatatila,460
+30157,Castillo de Teayo,663
+30158,Tecolutla,940
+30159,Tehuipango,117
+30160,Álamo Temapache,5867
+30161,Tempoal,1203
+30162,Tenampa,160
+30163,Tenochtitlán,301
+30164,Teocelo,1120
+30165,Tepatlaxco,482
+30166,Tepetlán,905
+30167,Tepetzintla,388
+30168,Tequila,1669
+30169,José Azueta,900
+30170,Texcatepec,142
+30172,Texistepec,1671
+30173,Tezonapa,1181
+30174,Tierra Blanca,5146
+30175,Tihuatlán,8693
+30176,Tlacojalpan,244
+30177,Tlacolulan,1212
+30178,Tlacotalpan,930
+30179,Tlacotepec de Mejía,272
+30180,Tlachichilco,126
+30181,Tlalixcoyan,1772
+30182,Tlalnelhuayocan,4859
+30183,Tlapacoyan,684
+30184,Tlaquilpa,157
+30186,Tomatlán,1339
+30187,Tonayán,301
+30188,Totutla,328
+30189,Tuxpan,10118
+30190,Tuxtilla,226
+30191,Ursulo Galván,1730
+30192,Vega de Alatorre,958
+30193,Veracruz,27193
+30194,Villa Aldama,736
+30195,Xoxocotla,131
+30196,Yanga,1815
+30197,Yecuatla,519
+30198,Zacualpan,136
+30200,Zentla,238
+30201,Zongolica,1048
+30202,Zontecomatlán de López y Fuentes,151
+30204,Agua Dulce,2278
+30205,El Higo,624
+30207,Tres Valles,2252
+30208,Carlos A. Carrillo,1965
+30209,Tatahuicapan de Juárez,207
+30210,Uxpanapa,461
+30211,San Rafael,1722
+30212,Santiago Sochiapan,180
+31001,Abalá,171
+31002,Acanceh,278
+31003,Akil,420
+31005,Bokobá,190
+31006,Buctzotz,67
+31007,Cacalchén,361
+31008,Calotmul,173
+31009,Cansahcab,182
+31010,Cantamayec,59
+31011,Celestún,69
+31012,Cenotillo,107
+31013,Conkal,4196
+31014,Cuncunul,111
+31015,Cuzamá,244
+31016,Chacsinkín,96
+31017,Chankom,110
+31018,Chapab,254
+31019,Chemax,586
+31020,Chicxulub Pueblo,1272
+31021,Chichimilá,623
+31022,Chikindzonot,14
+31023,Chocholá,674
+31024,Chumayel,83
+31025,Dzán,518
+31026,Dzemul,214
+31027,Dzidzantún,548
+31028,Dzilam de Bravo,0
+31029,Dzilam González,302
+31030,Dzitás,94
+31031,Dzoncauich,50
+31032,Espita,360
+31033,Halachó,510
+31034,Hocabá,248
+31035,Hoctún,127
+31036,Homún,263
+31037,Huhí,222
+31038,Hunucmá,2374
+31040,Izamal,998
+31041,Kanasín,6976
+31042,Kantunil,97
+31044,Kinchil,303
+31045,Kopomá,81
+31046,Mama,310
+31047,Maní,493
+31048,Maxcanú,599
+31049,Mayapán,23
+31050,Mérida,102827
+31052,Motul,1687
+31053,Muna,503
+31054,Muxupip,933
+31055,Opichén,184
+31056,Oxkutzcab,1551
+31057,Panabá,373
+31058,Peto,950
+31059,Progreso,4469
+31060,Quintana Roo,25
+31061,Río Lagartos,97
+31062,Sacalum,382
+31063,Samahil,951
+31065,San Felipe,217
+31066,Santa Elena,392
+31067,Seyé,2823
+31068,Sinanché,158
+31069,Sotuta,204
+31070,Sucilá,260
+31071,Sudzal,200
+31072,Suma,234
+31073,Tahdziú,29
+31074,Tahmek,159
+31075,Teabo,326
+31076,Tecoh,213
+31077,Tekal de Venegas,84
+31078,Tekantó,150
+31079,Tekax,1844
+31080,Tekit,119
+31081,Tekom,298
+31082,Telchac Pueblo,116
+31083,Telchac Puerto,122
+31084,Temax,586
+31085,Temozón,471
+31086,Tepakán,197
+31087,Tetiz,283
+31088,Teya,121
+31089,Ticul,1796
+31090,Timucuy,2876
+31091,Tinum,493
+31092,Tixcacalcupul,113
+31093,Tixkokob,2515
+31094,Tixmehuac,147
+31096,Tizimín,3591
+31097,Tunkás,119
+31098,Tzucacab,427
+31099,Uayma,53
+31100,Ucú,6462
+31101,Umán,22654
+31102,Valladolid,5365
+31103,Xocchel,241
+31104,Yaxcabá,218
+31105,Yaxkukul,1431
+32001,Apozol,439
+32002,Apulco,149
+32003,Atolinga,245
+32004,Benito Juárez,287
+32005,Calera,2127
+32006,Cañitas de Felipe Pescador,558
+32007,Concepción del Oro,604
+32008,Cuauhtémoc,868
+32009,Chalchihuites,397
+32010,Fresnillo,17708
+32011,Trinidad García de la Cadena,161
+32012,Genaro Codina,557
+32013,General Enrique Estrada,795
+32014,General Francisco R. Murguía,1364
+32015,El Plateado de Joaquín Amaro,140
+32016,General Pánfilo Natera,492
+32017,Guadalupe,12750
+32018,Huanusco,1048
+32019,Jalpa,1659
+32020,Jerez,5139
+32021,Jiménez del Teul,128
+32022,Juan Aldama,1161
+32023,Juchipila,942
+32024,Loreto,2443
+32025,Luis Moya,580
+32026,Mazapil,1086
+32027,Melchor Ocampo,131
+32028,Mezquital del Oro,179
+32029,Miguel Auza,911
+32030,Momax,167
+32031,Monte Escobedo,379
+32032,Morelos,8875
+32033,Moyahua de Estrada,299
+32034,Nochistlán de Mejía,2194
+32035,Noria de Ángeles,1160
+32036,Ojocaliente,1779
+32037,Pánuco,3405
+32038,Pinos,2658
+32039,Río Grande,3403
+32040,Sain Alto,975
+32041,El Salvador,0
+32042,Sombrerete,3501
+32043,Susticacán,106
+32044,Tabasco,536
+32045,Tepechitlán,513
+32046,Tepetongo,680
+32047,Teúl de González Ortega,207
+32048,Tlaltenango de Sánchez Román,1461
+32049,Valparaíso,1473
+32050,Vetagrande,7955
+32051,Villa de Cos,2551
+32052,Villa García,868
+32053,Villa González Ortega,746
+32054,Villa Hidalgo,514
+32055,Villanueva,2076
+32056,Zacatecas,6086
+32057,Trancoso,1432
+32058,Santa María de la Paz,212

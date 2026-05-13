@@ -1,0 +1,17 @@
+1.Posicionarse en la carpeta donde esta el paquete
+
+2.Ejecutar: 
+	
+	Abrir el proyecto
+	devtools::load_all()
+
+	o
+
+	install.packages("ExplainBiasV.0.0_1.0.tar.gz", repos = NULL, type = "source")
+	library(ExplainBiasV.0.0)
+
+3.Ejecutar:
+
+	exe()
+
+4.Leer y seguir cuidadosamente las instrucciones del programa

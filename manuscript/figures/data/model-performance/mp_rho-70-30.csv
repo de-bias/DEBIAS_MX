@@ -1,0 +1,6 @@
+﻿metric,train-non-spatial,test-non-spatial,train-queen,test-queen,trian-knn,test-knn
+rmse,0,0.001,0,0.001,0,0.001
+pearson,0.992,0.883,0.992,0.882,0.988,0.886
+spearman,0.981,0.876,0.981,0.875,0.973,0.879
+sd,0,0.001,0,0.001,0,0.001
+r2,0.983,0.779,0.984,0.778,0.976,0.784

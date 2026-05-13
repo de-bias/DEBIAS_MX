@@ -1,0 +1,8 @@
+Metric,Train,Test
+RMSE,0,0.001
+Pearson,0.99,0.882
+P_Value_Pearson,0,0
+Spearman,0.979,0.875
+P_Value_Spearman,0,0
+SD_Error,0,0.001
+R2,0.979,0.778

@@ -1,0 +1,29 @@
+﻿Code_label,Plot_label
+Total_Population,Population
+Total_houses,Households
+P_female,Female
+Mean_age,Mean age
+P_age_00_14,Population 0-14
+P_age_15_39,Population 15-39
+P_age_65_more,Population 65+
+P_migrants,Migrants
+P_afrodescendants,Afrodescendants
+P_disability,Disability
+P_indigenous_language,Indigenous language
+P_university_studies,University degree
+P_read_write,Literacy
+P_electricity,Electricity
+P_car,Car
+P_cell_phone,Cell phone
+P_internet,Internet
+Mean_occupants,Mean occupants
+P_working,Working
+Current_income,Income
+P_poverty,Poverty
+P_extreme_poverty,Extreme poverty
+P_vulnerable_income,Vulnerable income
+P_educational_lag,Educational lag
+P_lack_quality_living_spaces,Poor housing conditions
+longitude,Longitude
+latitude,Latitude
+bias_w,Spatial bias

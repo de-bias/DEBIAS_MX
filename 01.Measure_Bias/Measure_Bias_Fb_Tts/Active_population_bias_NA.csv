@@ -1,0 +1,386 @@
+"Area_code","Area_name","Total_Population","Total_active_population","Bias","Map_bias"
+7113," Aldama",8480,NA,NA,NA
+7028," Chiapilla",6156,NA,NA,NA
+7036," La Grandeza",7701,NA,NA,NA
+7055," Metapa",5876,NA,NA,NA
+7056," Mitontic",13755,NA,NA,NA
+7058," Nicolás Ruíz",4765,NA,NA,NA
+7060," Ocotepec",14088,NA,NA,NA
+7063," Osumacinta",3983,NA,NA,NA
+7067," Pantepec",12266,NA,NA,NA
+7118," San Andrés Duraznal",6047,NA,NA,NA
+7119," Santiago el Pinar",4959,NA,NA,NA
+7088," Sunuapa",2308,NA,NA,NA
+7105," Unión Juárez",16008,NA,NA,NA
+9002," Azcapotzalco",432205,NA,NA,NA
+9014," Benito Juárez",434153,NA,NA,NA
+9003," Coyoacán",614447,NA,NA,NA
+9015," Cuauhtémoc",545884,NA,NA,NA
+9005," Gustavo A. Madero",1173351,NA,NA,NA
+9006," Iztacalco",404695,NA,NA,NA
+11036," Santiago Maravatío",6714,NA,NA,NA
+13010," Atitalaquia",31525,NA,NA,NA
+13032," Jaltocán",10523,NA,NA,NA
+13039," Mineral del Monte",14324,NA,NA,NA
+13065," Tetepango",11768,NA,NA,NA
+13070," Tlahuelilpan",19067,NA,NA,NA
+15006," Almoloya del Río",12694,NA,NA,NA
+15012," Atizapán",12984,NA,NA,NA
+15013," Atizapán de Zaragoza",523674,NA,NA,NA
+15019," Capulhuac",36921,NA,NA,NA
+15027," Chapultepec",12772,NA,NA,NA
+15028," Chiautla",30045,NA,NA,NA
+15029," Chicoloapan",200750,NA,NA,NA
+15030," Chiconcuac",27692,NA,NA,NA
+15031," Chimalhuacán",705193,NA,NA,NA
+15022," Cocotitlán",15107,NA,NA,NA
+15023," Coyotepec",40885,NA,NA,NA
+15024," Cuautitlán",178847,NA,NA,NA
+15034," Ecatzingo",10827,NA,NA,NA
+15038," Isidro Fabela",11929,NA,NA,NA
+15044," Jaltenco",28217,NA,NA,NA
+15049," Joquicingo",15428,NA,NA,NA
+15053," Melchor Ocampo",61220,NA,NA,NA
+15055," Mexicaltzingo",13807,NA,NA,NA
+15059," Nextlalpan",57082,NA,NA,NA
+15058," Nezahualcóyotl",1077208,NA,NA,NA
+15061," Nopaltepec",10351,NA,NA,NA
+15068," Ozumba",30785,NA,NA,NA
+15069," Papalotla",4862,NA,NA,NA
+15072," Rayón",15972,NA,NA,NA
+15075," San Martín de las Pirámides",29182,NA,NA,NA
+15083," Temamatla",14130,NA,NA,NA
+15089," Tenango del Aire",11359,NA,NA,NA
+15091," Teoloyucan",65459,NA,NA,NA
+15098," Texcalyacac",5736,NA,NA,NA
+15125," Tonanitla",14883,NA,NA,NA
+15108," Tultepec",157645,NA,NA,NA
+15122," Valle de Chalco Solidaridad",391731,NA,NA,NA
+16005," Angangueo",10892,NA,NA,NA
+16060," Numarán",9437,NA,NA,NA
+16061," Ocampo",24774,NA,NA,NA
+16076," Sahuayo",78477,NA,NA,NA
+17034," Coatetelco",11347,NA,NA,NA
+17036," Hueyapan",7855,NA,NA,NA
+17011," Jiutepec",215357,NA,NA,NA
+17033," Temoac",16574,NA,NA,NA
+17031," Zacatepec",36094,NA,NA,NA
+20174," Ánimas Trujano",4564,NA,NA,NA
+20007," Asunción Ocotlán",2395,NA,NA,NA
+20247," Capulálpam de Méndez",1619,NA,NA,NA
+20025," Chahuites",11356,NA,NA,NA
+20027," Chiquihuitlán de Benito Juárez",2179,NA,NA,NA
+20013," Ciénega de Zimatlán",3043,NA,NA,NA
+20020," Constancia del Rosario",4847,NA,NA,NA
+20030," El Espinal",8730,NA,NA,NA
+20034," Guadalupe de Ramírez",1288,NA,NA,NA
+20035," Guelatao de Juárez",657,NA,NA,NA
+20040," Huautepec",6385,NA,NA,NA
+20065," Ixpantepec Nieves",1079,NA,NA,NA
+20069," La Pe",3052,NA,NA,NA
+20556," La Trinidad Vista Hermosa",306,NA,NA,NA
+20049," Magdalena Ocotlán",1184,NA,NA,NA
+20051," Magdalena Teitipac",4764,NA,NA,NA
+20562," Magdalena Yodocono de Porfirio Díaz",1682,NA,NA,NA
+20054," Magdalena Zahuatlán",404,NA,NA,NA
+20056," Mártires de Tacubaya",1446,NA,NA,NA
+20062," Natividad",498,NA,NA,NA
+20063," Nazareno Etla",4293,NA,NA,NA
+20077," Reyes Etla",4370,NA,NA,NA
+20078," Rojas de Cuauhtémoc",1301,NA,NA,NA
+20081," San Agustín Atenango",1871,NA,NA,NA
+20083," San Agustín de las Juntas",11391,NA,NA,NA
+20087," San Agustín Yatareni",5521,NA,NA,NA
+20091," San Andrés Huayápam",6279,NA,NA,NA
+20092," San Andrés Ixtlahuaca",1776,NA,NA,NA
+20095," San Andrés Paxtlán",4562,NA,NA,NA
+20096," San Andrés Sinaxtla",756,NA,NA,NA
+20101," San Andrés Zabache",748,NA,NA,NA
+20103," San Antonino Castillo Velasco",6064,NA,NA,NA
+20106," San Antonio Acutla",249,NA,NA,NA
+20107," San Antonio de la Cal",26282,NA,NA,NA
+20110," San Antonio Sinicahua",1668,NA,NA,NA
+20111," San Antonio Tepetlapa",4873,NA,NA,NA
+20112," San Baltazar Chichicápam",2576,NA,NA,NA
+20114," San Baltazar Yatzachi el Bajo",674,NA,NA,NA
+20115," San Bartolo Coyotepec",10391,NA,NA,NA
+20116," San Bartolomé Ayautla",4131,NA,NA,NA
+20118," San Bartolomé Quialana",2389,NA,NA,NA
+20120," San Bartolomé Zoogocho",449,NA,NA,NA
+20128," San Cristóbal Lachirioag",1342,NA,NA,NA
+20129," San Cristóbal Suchixtlahuaca",356,NA,NA,NA
+20132," San Dionisio Ocotlán",1380,NA,NA,NA
+20139," San Francisco Chapulapa",2195,NA,NA,NA
+20140," San Francisco Chindúa",812,NA,NA,NA
+20142," San Francisco Huehuetlán",842,NA,NA,NA
+20144," San Francisco Jaltepetongo",1075,NA,NA,NA
+20145," San Francisco Lachigoló",5215,NA,NA,NA
+20155," San Ildefonso Sola",1060,NA,NA,NA
+20157," San Jacinto Amilpas",16827,NA,NA,NA
+20158," San Jacinto Tlacotepec",2233,NA,NA,NA
+20160," San Jerónimo Silacayoapilla",1429,NA,NA,NA
+20163," San Jerónimo Tecóatl",1577,NA,NA,NA
+20164," San Jorge Nuchita",2881,NA,NA,NA
+20165," San José Ayuquila",1629,NA,NA,NA
+20167," San José del Peñasco",2149,NA,NA,NA
+20168," San José Estancia Grande",938,NA,NA,NA
+20178," San Juan Bautista Guelache",6692,NA,NA,NA
+20180," San Juan Bautista Lo de Soto",2344,NA,NA,NA
+20181," San Juan Bautista Suchitepec",453,NA,NA,NA
+20182," San Juan Bautista Tlacoatzintepec",2181,NA,NA,NA
+20191," San Juan Chicomezúchil",296,NA,NA,NA
+20192," San Juan Chilateca",1522,NA,NA,NA
+20188," San Juan Colorado",9609,NA,NA,NA
+20194," San Juan del Río",1372,NA,NA,NA
+20195," San Juan Diuxi",1056,NA,NA,NA
+20196," San Juan Evangelista Analco",407,NA,NA,NA
+20197," San Juan Guelavía",3288,NA,NA,NA
+20209," San Juan Mixtepec.",607,NA,NA,NA
+20215," San Juan Sayultepec",879,NA,NA,NA
+20216," San Juan Tabaá",1241,NA,NA,NA
+20219," San Juan Teitipac",2668,NA,NA,NA
+20223," San Juan Yatzona",440,NA,NA,NA
+20224," San Juan Yucuita",643,NA,NA,NA
+20228," San Lorenzo Cuaunecuiltitla",833,NA,NA,NA
+20230," San Lorenzo Victoria",932,NA,NA,NA
+20236," San Marcial Ozolotepec",1372,NA,NA,NA
+20238," San Martín de los Cansecos",994,NA,NA,NA
+20239," San Martín Huamelúlpam",1000,NA,NA,NA
+20240," San Martín Itunyoso",2749,NA,NA,NA
+20241," San Martín Lachilá",1034,NA,NA,NA
+20243," San Martín Tilcajete",1975,NA,NA,NA
+20245," San Martín Zacatepec",1324,NA,NA,NA
+20246," San Mateo Cajonos",611,NA,NA,NA
+20248," San Mateo del Mar",15571,NA,NA,NA
+20251," San Mateo Nejápam",1217,NA,NA,NA
+20252," San Mateo Peñasco",2384,NA,NA,NA
+20256," San Mateo Tlapiltepec",229,NA,NA,NA
+20249," San Mateo Yoloxochitlán",3831,NA,NA,NA
+20257," San Melchor Betaza",1052,NA,NA,NA
+20258," San Miguel Achiutla",698,NA,NA,NA
+20264," San Miguel Chicahua",2169,NA,NA,NA
+20267," San Miguel del Río",245,NA,NA,NA
+20268," San Miguel Ejutla",1149,NA,NA,NA
+20274," San Miguel Piedras",1328,NA,NA,NA
+20276," San Miguel Santa Flor",691,NA,NA,NA
+20281," San Miguel Tecomatlán",305,NA,NA,NA
+20289," San Nicolás",1214,NA,NA,NA
+20293," San Pablo Etla",17116,NA,NA,NA
+20295," San Pablo Huixtepec",10020,NA,NA,NA
+20299," San Pablo Yaganiza",1125,NA,NA,NA
+20301," San Pedro Apóstol",1594,NA,NA,NA
+20303," San Pedro Cajonos",1081,NA,NA,NA
+20305," San Pedro Comitancillo",4333,NA,NA,NA
+20310," San Pedro Ixtlahuaca",14552,NA,NA,NA
+20311," San Pedro Jaltepetongo",483,NA,NA,NA
+20312," San Pedro Jicayán",11279,NA,NA,NA
+20314," San Pedro Juchatengo",1755,NA,NA,NA
+20315," San Pedro Mártir",1899,NA,NA,NA
+20320," San Pedro Molinos",706,NA,NA,NA
+20322," San Pedro Ocopetatillo",786,NA,NA,NA
+20323," San Pedro Ocotepec",2404,NA,NA,NA
+20328," San Pedro Taviche",1441,NA,NA,NA
+20331," San Pedro Tidaá",982,NA,NA,NA
+20341," San Pedro Yucunama",241,NA,NA,NA
+20342," San Raymundo Jalpan",4105,NA,NA,NA
+20343," San Sebastián Abasolo",1999,NA,NA,NA
+20347," San Sebastián Río Hondo",4202,NA,NA,NA
+20350," San Sebastián Tutla",16878,NA,NA,NA
+20351," San Simón Almolongas",2802,NA,NA,NA
+20352," San Simón Zahuatlán",4940,NA,NA,NA
+20354," Santa Ana Ateixtlahuaca",477,NA,NA,NA
+20359," Santa Ana Yareni",637,NA,NA,NA
+20361," Santa Catalina Quierí",825,NA,NA,NA
+20362," Santa Catarina Cuixtla",1495,NA,NA,NA
+20365," Santa Catarina Lachatao",1059,NA,NA,NA
+20368," Santa Catarina Minas",2067,NA,NA,NA
+20369," Santa Catarina Quiané",2193,NA,NA,NA
+20074," Santa Catarina Quioquitani",456,NA,NA,NA
+20370," Santa Catarina Tayata",662,NA,NA,NA
+20371," Santa Catarina Ticuá",986,NA,NA,NA
+20374," Santa Cruz Acatepec",1645,NA,NA,NA
+20375," Santa Cruz Amilpas",13200,NA,NA,NA
+20376," Santa Cruz de Bravo",365,NA,NA,NA
+20378," Santa Cruz Mixtepec",3720,NA,NA,NA
+20379," Santa Cruz Nundaco",2951,NA,NA,NA
+20380," Santa Cruz Papalutla",2242,NA,NA,NA
+20381," Santa Cruz Tacache de Mina",2940,NA,NA,NA
+20382," Santa Cruz Tacahua",1182,NA,NA,NA
+20383," Santa Cruz Tayata",595,NA,NA,NA
+20384," Santa Cruz Xitla",4794,NA,NA,NA
+20387," Santa Gertrudis",2891,NA,NA,NA
+20388," Santa Inés del Monte",2809,NA,NA,NA
+20389," Santa Inés Yatzeche",908,NA,NA,NA
+20390," Santa Lucía del Camino",50362,NA,NA,NA
+20393," Santa Lucía Ocotlán",4173,NA,NA,NA
+20047," Santa Magdalena Jicotlán",81,NA,NA,NA
+20399," Santa María Atzompa",41921,NA,NA,NA
+20404," Santa María Chachoápam",761,NA,NA,NA
+20403," Santa María Coyotepec",3751,NA,NA,NA
+20409," Santa María del Tule",8939,NA,NA,NA
+20411," Santa María Guelacé",908,NA,NA,NA
+20420," Santa María Lachixío",1679,NA,NA,NA
+20422," Santa María Nativitas",603,NA,NA,NA
+20429," Santa María Sola",1516,NA,NA,NA
+20430," Santa María Tataltepec",317,NA,NA,NA
+20432," Santa María Temaxcalapa",903,NA,NA,NA
+20433," Santa María Temaxcaltepec",2694,NA,NA,NA
+20444," Santa María Yolotepec",481,NA,NA,NA
+20452," Santiago Apóstol",4421,NA,NA,NA
+20456," Santiago Cacaloxtepec",1667,NA,NA,NA
+20461," Santiago del Río",527,NA,NA,NA
+20471," Santiago Lalopa",431,NA,NA,NA
+20473," Santiago Laxopa",1291,NA,NA,NA
+20479," Santiago Nejapilla",174,NA,NA,NA
+20481," Santiago Nuyoó",1898,NA,NA,NA
+20483," Santiago Suchilquitongo",10886,NA,NA,NA
+20488," Santiago Tepetlapa",130,NA,NA,NA
+20490," Santiago Texcalcingo",2974,NA,NA,NA
+20493," Santiago Tillo",545,NA,NA,NA
+20497," Santiago Yaitepec",4233,NA,NA,NA
+20499," Santiago Yolomécatl",1922,NA,NA,NA
+20503," Santiago Zoochila",425,NA,NA,NA
+20514," Santo Domingo Roayaga",941,NA,NA,NA
+20518," Santo Domingo Tlatayápam",113,NA,NA,NA
+20519," Santo Domingo Tomaltepec",3386,NA,NA,NA
+20522," Santo Domingo Xagacía",1205,NA,NA,NA
+20524," Santo Domingo Yodohino",327,NA,NA,NA
+20531," Santo Tomás Mazaltepec",2612,NA,NA,NA
+20527," Santos Reyes Pápalo",2490,NA,NA,NA
+20538," Sitio de Xitlapehua",713,NA,NA,NA
+20539," Soledad Etla",6348,NA,NA,NA
+20541," Tanetze de Zaragoza",1558,NA,NA,NA
+20542," Taniche",887,NA,NA,NA
+20546," Teotitlán del Valle",6392,NA,NA,NA
+20547," Teotongo",1005,NA,NA,NA
+20552," Tlacotepec Plumas",410,NA,NA,NA
+20338," Villa de Etla",10361,NA,NA,NA
+20038," Villa Hidalgo",1885,NA,NA,NA
+20280," Villa Talea de Castro",2011,NA,NA,NA
+20564," Yutanduchi de Guerrero",1195,NA,NA,NA
+20568," Zapotitlán Palmas",1695,NA,NA,NA
+21009," Ahuehuetitla",2207,NA,NA,NA
+21013," Altepexi",22629,NA,NA,NA
+21014," Amixtlán",4812,NA,NA,NA
+21017," Atempan",29742,NA,NA,NA
+21080," Atlequizayan",2633,NA,NA,NA
+21020," Atoyatempan",7704,NA,NA,NA
+21021," Atzala",1512,NA,NA,NA
+21028," Camocuautla",2758,NA,NA,NA
+21029," Caxhuacan",3811,NA,NA,NA
+21052," Chigmecatitlán",1215,NA,NA,NA
+21059," Chinantla",2846,NA,NA,NA
+21030," Coatepec",772,NA,NA,NA
+21033," Cohuecan",5403,NA,NA,NA
+21034," Coronango",46836,NA,NA,NA
+21038," Cuapiaxtla de Madero",10542,NA,NA,NA
+21041," Cuautlancingo",137435,NA,NA,NA
+21060," Domingo Arenas",7982,NA,NA,NA
+21068," Hermenegildo Galeana",7011,NA,NA,NA
+21075," Hueyapan",13080,NA,NA,NA
+21084," Ixtepec",6950,NA,NA,NA
+21088," Jonotla",4457,NA,NA,NA
+21090," Juan C. Bonilla",23783,NA,NA,NA
+21091," Juan Galindo",9828,NA,NA,NA
+21095," La Magdalena Tlatlauquitepec",650,NA,NA,NA
+21118," Los Reyes de Juárez",30021,NA,NA,NA
+21097," Mixtla",2668,NA,NA,NA
+21100," Naupan",9310,NA,NA,NA
+21102," Nealtican",14075,NA,NA,NA
+21105," Ocotepec",5077,NA,NA,NA
+21117," Rafael Lara Grajales",15952,NA,NA,NA
+21122," San Felipe Teotlalcingo",11063,NA,NA,NA
+21125," San Gregorio Atzompa",9671,NA,NA,NA
+21131," San Juan Atzompa",975,NA,NA,NA
+21133," San Martín Totoltepec",692,NA,NA,NA
+21136," San Miguel Xoxtla",12461,NA,NA,NA
+21139," San Pablo Anicano",3759,NA,NA,NA
+21140," San Pedro Cholula",138433,NA,NA,NA
+21146," Santa Catarina Tlaltempan",749,NA,NA,NA
+21148," Santa Isabel Cholula",11498,NA,NA,NA
+21151," Santo Tomás Hueyotlipan",9315,NA,NA,NA
+21163," Tepatlaxco de Hidalgo",18854,NA,NA,NA
+21165," Tepemaxalco",1216,NA,NA,NA
+21168," Tepexco",7523,NA,NA,NA
+21171," Tepeyahualco de Cuauhtémoc",3851,NA,NA,NA
+21173," Teteles de Ávila Castillo",6653,NA,NA,NA
+21181," Tlaltenango",7425,NA,NA,NA
+21189," Tochtepec",22454,NA,NA,NA
+21200," Xochiapulco",3443,NA,NA,NA
+21210," Zapotitlán de Méndez",5675,NA,NA,NA
+21211," Zaragoza",16752,NA,NA,NA
+21214," Zinacatepec",18359,NA,NA,NA
+21215," Zongozotla",4539,NA,NA,NA
+24018," Huehuetlán",15334,NA,NA,NA
+28009," Ciudad Madero",205933,NA,NA,NA
+29022," Acuamanala de Miguel Hidalgo",6432,NA,NA,NA
+29001," Amaxac de Guerrero",11403,NA,NA,NA
+29002," Apetatitlán de Antonio Carvajal",16003,NA,NA,NA
+29005," Apizaco",80725,NA,NA,NA
+29018," Contla de Juan Cuamatzi",38579,NA,NA,NA
+29009," Cuaxomulco",5928,NA,NA,NA
+29016," Ixtenco",7504,NA,NA,NA
+29048," La Magdalena Tlaltelulco",19036,NA,NA,NA
+29047," Lázaro Cárdenas",3534,NA,NA,NA
+29017," Mazatecochco de José María Morelos",11592,NA,NA,NA
+29011," Muñoz de Domingo Arenas",4755,NA,NA,NA
+29024," Panotla",28357,NA,NA,NA
+29041," Papalotla de Xicohténcatl",33499,NA,NA,NA
+29049," San Damián Texóloc",5884,NA,NA,NA
+29051," San Jerónimo Zacualpan",4092,NA,NA,NA
+29053," San Juan Huactzinco",7688,NA,NA,NA
+29054," San Lorenzo Axocomanitla",5689,NA,NA,NA
+29055," San Lucas Tecopilco",3077,NA,NA,NA
+29056," Santa Ana Nopalucan",7952,NA,NA,NA
+29057," Santa Apolonia Teacalco",4636,NA,NA,NA
+29059," Santa Cruz Quilehtla",7750,NA,NA,NA
+29060," Santa Isabel Xiloxoxtla",5443,NA,NA,NA
+29027," Tenancingo",12974,NA,NA,NA
+29028," Teolocholco",25257,NA,NA,NA
+29019," Tepetitla de Lardizábal",22274,NA,NA,NA
+29029," Tepeyanco",13328,NA,NA,NA
+29032," Tetlatlahuca",13561,NA,NA,NA
+29035," Tocatlán",6294,NA,NA,NA
+29036," Totolac",22529,NA,NA,NA
+29038," Tzompantepec",18006,NA,NA,NA
+29042," Xicohtzinco",14197,NA,NA,NA
+29043," Yauhquemehcan",42242,NA,NA,NA
+29044," Zacatelco",45717,NA,NA,NA
+30001," Acajete",9701,NA,NA,NA
+30002," Acatlán",3441,NA,NA,NA
+30018," Aquila",1978,NA,NA,NA
+30019," Astacinga",6909,NA,NA,NA
+30026," Banderilla",25993,NA,NA,NA
+30029," Calcahualco",13701,NA,NA,NA
+30030," Camerino Z. Mendoza",41835,NA,NA,NA
+30056," Chiconamel",6610,NA,NA,NA
+30062," Chocamán",20839,NA,NA,NA
+30064," Chumatlán",4008,NA,NA,NA
+30036," Coacoatzintla",11018,NA,NA,NA
+30041," Coetzala",2355,NA,NA,NA
+30074," Huiloapan de Cuauhtémoc",7293,NA,NA,NA
+30081," Ixhuatlancillo",27295,NA,NA,NA
+30085," Ixtaczoquitlán",74004,NA,NA,NA
+30086," Jalacingo",46794,NA,NA,NA
+30088," Jalcomulco",5054,NA,NA,NA
+30096," Landero y Coss",1543,NA,NA,NA
+30137," Los Reyes",6308,NA,NA,NA
+30098," Magdalena",3299,NA,NA,NA
+30103," Mecatlán",12799,NA,NA,NA
+30106," Miahuatlán",4841,NA,NA,NA
+30206," Nanchital de Lázaro Cárdenas del Río",29209,NA,NA,NA
+30113," Naranjal",4614,NA,NA,NA
+30120," Oteapan",10343,NA,NA,NA
+30135," Rafael Delgado",24127,NA,NA,NA
+30146," Sochiapa",3925,NA,NA,NA
+30171," Texhuacán",5575,NA,NA,NA
+30185," Tlilapan",5548,NA,NA,NA
+30199," Zaragoza",11899,NA,NA,NA
+30203," Zozocolco de Hidalgo",14524,NA,NA,NA
+31004," Baca",6195,NA,NA,NA
+31039," Ixil",4186,NA,NA,NA
+31043," Kaua",3405,NA,NA,NA
+31051," Mocochá",3430,NA,NA,NA
+31064," Sanahcat",1701,NA,NA,NA
+31095," Tixpéhual",5690,NA,NA,NA
+31106," Yobaín",2215,NA,NA,NA

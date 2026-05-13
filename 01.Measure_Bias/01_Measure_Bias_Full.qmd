@@ -1,0 +1,1697 @@
+---
+title: "Este archivo funciona para los recursos: TTS, STT, los 3 datos de telefonìa y para cualquier otro que cumpla con el formato de los archivos de entrada. Los archivos de entrada se deben proporcionar en la carpeta Inputs y los archivos de salida se guardan en la carpeta especificada en el codigo como Outputs (esta se puede cambiar de nombre cambiando el valor de la variables).Se implementa la busqueda de la K óptima para la Option 3 de la busqueda de los pesos espaciales y la búsqueda del parámetro span óptimo en la Option 1. Se generan las salidas para los 5 modelos espaciales: nonspatial, queen, fbw, knn, db"
+format: html
+editor: visual
+---
+
+## 1.Define / Install / Load libraries
+
+```{r}
+# Define packages
+packages <- c(
+  "dplyr",
+  "sf",
+  "ggplot2",
+  "viridis",
+  "spdep",
+  "sysfonts",
+  "showtextdb",
+  "classInt",
+  "scales",
+  "forcats",
+  "spgwr",
+  "ggthemes",
+  "showtext",
+  "tmap",
+  "tidyverse",
+  "readr",
+  "magrittr",
+  "gridExtra",
+  "magick",
+  "patchwork"
+  
+)
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+} 
+# Load packages
+invisible(lapply(packages, library, character.only = TRUE))
+```
+
+Load libraries
+
+```{r}
+library(dplyr)
+library(sf)
+library(ggplot2)
+library(viridis)
+library(spdep)
+library(sysfonts)
+library(showtextdb)
+library(classInt)
+library(scales)
+library(forcats)
+library(spgwr)
+library(ggthemes)
+library(showtext)
+library(tmap)
+library(tidyverse)
+library(readr)
+library(magrittr)
+library(gridExtra)
+library(magick)
+library(patchwork)
+```
+
+Set theme
+
+```{r}
+#| include = FALSE
+source("./style/data-visualisation_theme.R")
+```
+
+### 1.1.Set parameters
+
+```{r}
+# Set weights scheme: nonspatial,queen, fbw, knn, db
+w_schemes <- c("queen", "fbw", "knn", "db")
+# Folder where the outputs will be saved
+Outputs <- "Measure_Bias_Mp_00_05"
+# Assign number of classes or divisions for plots
+num_classes <- 8
+```
+
+## 2. Data
+
+### 2.1.Population data
+
+```{r}
+Population_data <- read.csv("Inputs/01.Census2020_Mun_Población.csv", fileEncoding = "latin1") 
+colnames(Population_data)[1] <- "Area_code"
+colnames(Population_data)[2] <- "Area_name"
+colnames(Population_data)[3] <- "Total_Population"
+
+Population_data <- Population_data %>% select(Area_code, Area_name, Total_Population)
+
+# Verify data
+head(Population_data,n=5)
+# Verify missing values
+print(t(t(colSums(is.na(Population_data)))))
+# Verify dimensions
+print(dim(Population_data))
+```
+
+### 2.2.Geographical areas & Boundaries
+
+```{r}
+Geographical_areas <- st_read("Inputs/SHP/MunicipiosMX.shp")
+colnames(Geographical_areas)[1] <- "Area_code"
+Boundaries <- Geographical_areas
+
+Geographical_areas <-  Geographical_areas %>% 
+  select(Area_code, geometry)
+
+# Verify data
+head(Geographical_areas,n=5)
+# Verify missing values
+print(t(t(colSums(is.na(Geographical_areas)))))
+# Verify dimensions
+print(dim(Geographical_areas))
+
+# =================================================================================
+# Simplifies the complexity of spatial geometries
+Boundaries <- Boundaries %>%st_simplify(preserveTopology = TRUE, dTolerance = 1000)
+# Transforms the coordinate system of spatial geometries
+Boundaries <- st_transform(Boundaries,  crs = 4326)
+
+# Verify data
+head(Boundaries,n=5)
+# Verify missing values
+print(t(t(colSums(is.na(Boundaries)))))
+# Verify dimensions
+print(dim(Boundaries))
+```
+
+### 2.3.Active population
+
+```{r}
+Active_population <- read.csv("Inputs/Active_population_phone_00_05.csv", fileEncoding = "latin1") 
+colnames(Active_population)[1] <- "Area_code"
+colnames(Active_population)[2] <- "Area_name"
+colnames(Active_population)[3] <- "Total_active_population"
+
+Active_population <- Active_population %>% select(Area_code, Area_name, Total_active_population) %>%
+  mutate(Area_code = as.integer(Area_code))
+
+# Verify data
+head(Active_population,n=5)
+# Verify missing values
+print(t(t(colSums(is.na(Active_population)))))
+# Verify dimensions
+print(dim(Active_population))
+```
+
+## 3.Measure bias
+
+```{r}
+# Join dataframes
+Bias_measurement <- Population_data %>% left_join(Active_population, by = "Area_code")
+# Create Bias column
+Bias_measurement$Bias <- 1 - (Bias_measurement$Total_active_population)/(Bias_measurement$Total_Population)
+# Create Map_bias column
+Bias_measurement$Map_bias <- (Bias_measurement$Bias * 100)
+# Select columns
+Bias_measurement<- Bias_measurement %>%
+  select(Area_code,
+         Area_name.x,
+         Total_Population,
+         Total_active_population,
+         Bias,
+         Map_bias)%>% 
+  rename("Area_name" = "Area_name.x")
+
+dim(Bias_measurement)
+head(Bias_measurement,n=5)
+
+# Copy dataframe
+Bias_measurement_ORI <- Bias_measurement 
+```
+
+### 3.1. Missing values - Listwise deletion
+
+```{r}
+# Check for missing values
+Missing_values <- sum(is.na(Bias_measurement))
+print(paste0("   Missing values: ",Missing_values))
+print("========================")
+
+if(Missing_values > 0)
+{
+  print("Before listwise deletion")
+  print("========================")
+  print(t(t(colSums(is.na(Bias_measurement)))))
+  print("========================")
+  print("Dimension")
+  print(dim(Bias_measurement))
+  print("========================")
+  
+  # 1.Identify the rows with NA
+  rows_na <- which(rowSums(is.na(Bias_measurement)) > 0)
+  
+  # 2.Create a new dataframe with the rows with NA named Bias_measurement_NA
+  Bias_measurement_NA <- Bias_measurement[rows_na, ]
+  
+  # 3.Dropping missing values from Bias_measurement
+  Bias_measurement <- na.omit(Bias_measurement)
+  
+  # Check for missing values
+  print("========================")
+  print("After listwise deletion")
+  print("========================")
+  print(t(t(colSums(is.na(Bias_measurement)))))
+  print("========================")
+  print("Dimension")
+  print(dim(Bias_measurement))
+  print("========================")
+  print("Dimension missing values")
+  print(dim(Bias_measurement_NA))
+  print("========================")
+}
+```
+
+### 3.2.Dropping Negative Bias
+
+```{r}
+# Check for negative bias
+Negative_bias <- sum(Bias_measurement$Bias < 0)
+print(paste0("   Negative values: ",Negative_bias))
+print("========================")
+
+if(Negative_bias > 0)
+{
+  # 1.Create a new dataframe with the rows with negative bias named Bias_measurement_NEG
+  Bias_measurement_NEG <- Bias_measurement %>% filter(Bias < 0)
+  print("Dimension negative values")
+  print(dim(Bias_measurement_NEG))
+  print("========================")
+  
+  
+  # 2.Dropping negative values from Bias_measurement
+  Bias_measurement <- Bias_measurement %>% filter(Bias > 0)
+  print("Dimension positive values")
+  print(dim(Bias_measurement))
+  print("========================")
+  
+  # Check for negative bias
+  Negative_bias_ <- sum(Bias_measurement$Bias < 0)
+  print(paste0("   Negative values: ",Negative_bias_))
+  print("========================")
+}
+```
+
+### 3.3.Data information
+
+```{r}
+# Total Population
+di_total_population  <- sum(Population_data$Total_Population)
+
+# Active Population
+di_active_population <- sum(Active_population$Total_active_population)
+
+# Coverage
+di_coverage          <- (di_active_population/di_total_population)*100
+
+# Total areas from SHP file
+di_total_areas       <- dim(Boundaries)[1]
+
+# Areas from total population
+di_areas_from_total_population <- dim(Population_data)[1]
+
+# Areas from active population
+di_areas_from_active_population <- dim(Active_population)[1]
+
+# Missing values areas
+if(Missing_values > 0){
+  di_missing_values_areas <- dim(Bias_measurement_NA)[1]
+}else{
+  di_missing_values_areas <- 0
+}
+
+# Areas after missing values treatment
+di_areas_after_missing <- (di_areas_from_total_population - di_missing_values_areas)
+
+# Negative bias areas
+if(Negative_bias > 0){
+  di_negative_bias_areas <- dim(Bias_measurement_NEG)[1]
+}else{
+  di_negative_bias_areas <- 0
+}
+
+# Areas after negative bias treatment
+di_areas_after_negative <- dim(Bias_measurement)[1]
+
+# Pearson correlation
+di_pearson_correlation <- cor(Bias_measurement$Total_Population, Bias_measurement$Total_active_population)
+
+# Create dataframe
+data_information <- data.frame(
+  Metric = c("Total population", 
+             "Active population", 
+             "Coverage", 
+             "Total areas from SHP file",
+             "Areas from total population",
+             "Areas from active population",
+             "Missing values areas",
+             "Areas after missing values treatment",
+             "Negative bias areas",
+             "Areas after negative bias treatment",
+             "Pearson correlation"),
+  Value = c(di_total_population, 
+            di_active_population, 
+            di_coverage,
+            di_total_areas,
+            di_areas_from_total_population,
+            di_areas_from_active_population,
+            di_missing_values_areas,
+            di_areas_after_missing,
+            di_negative_bias_areas,
+            di_areas_after_negative,
+            di_pearson_correlation)
+)
+
+# Format columns
+data_information$Value <- ifelse(data_information$Metric == "Coverage",
+                               sprintf("%.2f", data_information$Value),
+                               ifelse(data_information$Metric == "Pearson correlation",
+                                      sprintf("%.2f", data_information$Value),
+                                      sprintf("%.0f", data_information$Value)))
+
+# Print dataframe
+print(data_information)
+```
+
+### 3.4. Correlation graph
+
+```{r}
+# Create the correlation graph
+correlation_graph <- ggplot(Bias_measurement, aes(x = Total_Population, y = Total_active_population)) +
+  geom_point() +
+  labs(title = "CORRELATION GRAPH",
+       x = "Total Population",
+       y = "Total Active Population") +
+  theme_bw() +
+  #theme_plot_tufte() +
+  theme(axis.text.x = element_text(size = 40),  # Tamaño del texto del eje x
+        axis.text.y = element_text(size = 40),  # Tamaño del texto del eje y
+        axis.title.x = element_text(size = 40), # Tamaño del título del eje x
+        axis.title.y = element_text(size = 40), # Tamaño del título del eje y
+        plot.title = element_text(size = 40))   # Tamaño del título del gráfico
+
+correlation_graph
+```
+
+### 3.5.Create folders for outputs and saving
+
+```{r}
+# 1. Create the main folder if it does not exist
+if (!dir.exists(Outputs)) {
+  dir.create(Outputs)
+  cat(paste0("Main Folder Output '", Outputs, "' successfully created.\n"))
+} else {
+  cat(paste0("Main Folder Output '", Outputs, "' already exists.\n"))
+}
+
+# 2. Create the subfolders inside the main folder.
+Subfolders <- c("Scatter", "Histogram", "Map")
+for (Subfolder in Subfolders) {
+  path_subfolder <- file.path(Outputs, Subfolder)
+  if (!dir.exists(path_subfolder)) {
+    dir.create(path_subfolder)
+    cat(paste0("Subfolder '", Subfolder, "' created in '", Outputs, "' successfully.\n"))
+  } else {
+    cat(paste0("Subfolder '", Subfolder, "' already exists in '", Outputs, "'.\n"))
+  }
+}
+cat("Folder creation process completed.\n")
+```
+
+Saving data information & correlation graph
+
+```{r}
+# Try to write the CSV file and save the result.
+write_output <- try(write.csv(data_information, file.path(Outputs, "Data_information.csv"), fileEncoding = "latin1", row.names = FALSE))
+# Check if there were any errors during writing
+if (inherits(write_output, "try-error")) {
+  cat(paste0("Error saving: 'Data_information.csv' in '", Outputs, "'.\n"))
+  cat("Error message: ", as.character(write_output), "\n")
+} else {
+  cat(paste0("Data_information.csv successfully created in '", Outputs, "'.\n"))
+}
+
+# Saving correlation graph
+write_output <- try(ggsave(file.path(Outputs, "/Correlation_graph.png"), plot = correlation_graph, bg = "white"))
+# Check if there were any errors during saving
+if (inherits(write_output, "try-error")) {
+  cat(paste0("Error saving: 'Correlation_graph.png' in '", Outputs, "'.\n"))
+  cat("Error message: ", as.character(write_output), "\n")
+} else {
+  cat(paste0("Correlation_graph.png successfully created in '", Outputs, "'.\n"))
+}
+```
+
+Saving Measure bias
+
+```{r}
+# NON-SPATIAL
+# Try to write the CSV file and save the result.
+write_output <- try(write.csv(Bias_measurement, file.path(Outputs, "Active_population_bias_nonspatial.csv"), fileEncoding = "latin1", row.names = FALSE))
+# Check if there were any errors during writing
+if (inherits(write_output, "try-error")) {
+  cat(paste0("Error saving: 'Active_population_bias_nonspatial.csv' in '", Outputs, "'.\n"))
+  cat("Error message: ", as.character(write_output), "\n")
+} else {
+  cat(paste0("Active_population_bias_nonspatial.csv successfully created in '", Outputs, "'.\n"))
+}
+
+# MISSING VALUES
+if(Missing_values > 0)
+{
+  # Try to write the CSV file and save the result.
+  write_output <- try(write.csv(Bias_measurement_NA, file.path(Outputs, "Active_population_bias_NA.csv"), fileEncoding = "latin1", row.names = FALSE))
+  # Check if there were any errors during writing
+  if (inherits(write_output, "try-error")) {
+    cat(paste0("Error saving: 'Active_population_bias_NA.csv' in '", Outputs, "'.\n"))
+    cat("Error message: ", as.character(write_output), "\n")
+  } else {
+    cat(paste0("Active_population_bias_NA.csv successfully created in '", Outputs, "'.\n"))
+  }
+  rm(Bias_measurement_NA)
+}
+
+# NEGATIVE BIAS
+if(Negative_bias > 0)
+{
+  # Try to write the CSV file and save the result.
+  write_output <- try(write.csv(Bias_measurement_NEG, file.path(Outputs, "Active_population_bias_NEG.csv"), fileEncoding = "latin1", row.names = FALSE))
+  # Check if there were any errors during writing
+  if (inherits(write_output, "try-error")) {
+    cat(paste0("Error saving: 'Active_population_bias_NEG.csv' in '", Outputs, "'.\n"))
+    cat("Error message: ", as.character(write_output), "\n")
+  } else {
+    cat(paste0("Active_population_bias_NEG.csv successfully created in '", Outputs, "'.\n"))
+  }
+  rm(Bias_measurement_NEG)
+}
+
+# ORIGINAL DATA WITH MISSING VALUES AND/OR NEGATIVE BIAS
+if(Missing_values > 0 || Negative_bias > 0)
+{
+  # Try to write the CSV file and save the result.
+  write_output <- try(write.csv(Bias_measurement_ORI, file.path(Outputs, "Active_population_bias_ORI.csv"), fileEncoding = "latin1", row.names = FALSE))
+  # Check if there were any errors during writing
+  if (inherits(write_output, "try-error")) {
+    cat(paste0("Error saving: 'Active_population_bias_ORI.csv' in '", Outputs, "'.\n"))
+    cat("Error message: ", as.character(write_output), "\n")
+  } else {
+    cat(paste0("Active_population_bias_ORI.csv successfully created in '", Outputs, "'.\n"))
+  }
+  rm(Bias_measurement_ORI)
+}
+```
+
+## 4.Scatter plot
+
+```{r}
+# Assign number of classes or divisions for plots
+# It was assigned in the set parameters section
+
+# Dividing data into intervals
+jenks_breaks <- classIntervals(Bias_measurement$Bias*100, n = num_classes, style = "jenks")$brks
+
+# Assigns unique intervals
+jenks_breaks <- unique(jenks_breaks)
+print("Breaks:")
+print(jenks_breaks)
+
+# Create a factor variable for color breaks
+Bias_measurement$jenks_bins <- cut(Bias_measurement$Bias*100, breaks = jenks_breaks, include.lowest = TRUE)
+
+# Create a custom color palette from viridis
+jenks_colors <- viridis(length(jenks_breaks) - 1)
+
+# Manually format the legend labels to avoid scientific notation
+formatted_labels <- sapply(1:(length(jenks_breaks) - 1), function(i) {
+  paste0("[", 
+         sprintf("%.1f", jenks_breaks[i]), ", ", 
+         sprintf("%.1f", jenks_breaks[i + 1]), ")")
+})
+print("Labels:")
+print(formatted_labels)
+
+# Perform the Pearson correlation test, removing NA values
+correlation_test <- cor.test(Bias_measurement$Total_Population, Bias_measurement$Total_active_population, use = "complete.obs", method = "pearson")
+correlation_coefficient <- round(correlation_test$estimate, 2)
+p_value <- correlation_test$p.value
+p_annotation <- ifelse(p_value < 0.05, "p < 0.05", paste("p =", round(p_value, 2)))
+annotation <- data.frame(
+   x = c(max(Bias_measurement$Total_Population * 0.6, na.rm = TRUE), 
+         max(Bias_measurement$Total_Population * 0.6, na.rm = TRUE)),
+   y = c(max(Bias_measurement$Total_active_population * 0.95, na.rm = TRUE), 
+         max(Bias_measurement$Total_active_population * 0.85, na.rm = TRUE)),
+   label = c(paste0("r = ", correlation_coefficient), p_annotation)
+)
+
+annotation
+
+# Create the plot
+Scatter_plot <- ggplot(Bias_measurement, aes(x = Total_Population, y = Total_active_population, color = jenks_bins)) +
+  geom_point(size = 5, alpha = 0.6, stroke = 0.7) +
+  scale_color_viridis_d(
+    na.translate = TRUE,
+    na.value = "gray"  # Color for NA values
+  ) +
+  labs(
+    x = "Total population",
+    y = "Total active population"
+  ) +
+  geom_text(data=annotation, aes(x=x, y=y, label=label),
+           color="black", 
+           size=25, 
+           angle=0, 
+           fontface="bold",
+           family = "robotocondensed") +
+  scale_x_continuous(labels = label_number(scale = 0.001, suffix = " k")) +
+  scale_y_continuous(labels = label_number(scale = 0.001, suffix = " k")) +
+  theme_plot_tufte() +
+  theme(axis.title.x = element_text(size = 60),  # Set font size for X-axis title
+    axis.title.y = element_text(size = 60),   # Set font size for Y-axis title
+    axis.text.x = element_text(size = 50),     # Font size for X-axis ticks
+    axis.text.y = element_text(size = 50),
+    legend.position = "none",
+    plot.margin = unit(c(1, 2, 1, 1), "lines")
+    )
+Scatter_plot
+```
+
+Saving scatter plot
+
+```{r}
+write_output <- try(ggsave(file.path(Outputs, "/Scatter/Scatter.png"), plot = Scatter_plot, bg = "white"))
+# Check if there were any errors during saving
+if (inherits(write_output, "try-error")) {
+  cat(paste0("Error saving: 'Scatter.png' in '", Outputs, "/Scatter'.\n"))
+  cat("Error message: ", as.character(write_output), "\n")
+} else {
+  cat(paste0("Scatter.png successfully created in '", Outputs, "/Scatter'.\n"))
+}
+```
+
+## 5.Histogram bias
+
+### 5.1. Labelled and Unlabelled Histograms (Original cuts)
+
+```{r}
+# Assign number of classes or divisions for plots
+# It was assigned in the set parameters section
+
+# Dividing data into intervals
+jenks_breaks <- classIntervals(Bias_measurement$Bias*100, n = num_classes, style = "jenks")$brks
+
+# Assigns unique intervals
+jenks_breaks <- unique(jenks_breaks)
+print("Breaks:")
+print(jenks_breaks)
+
+# Create a data frame with histogram information
+hist_data <- data.frame(value = Bias_measurement$Bias*100)
+
+# Create a factor variable for color breaks
+hist_data$jenks_bins <- cut(hist_data$value, breaks = jenks_breaks, include.lowest = TRUE)
+
+# Create a custom color palette from viridis
+jenks_colors <- viridis(length(jenks_breaks) - 1)
+
+# Manually format the legend labels to avoid scientific notation
+formatted_labels <- sapply(1:(length(jenks_breaks) - 1), function(i) {
+  paste0("[", 
+         sprintf("%.1f", jenks_breaks[i]), ", ", 
+         sprintf("%.1f", jenks_breaks[i + 1]), ")")
+})
+
+minimum_x <- sort(hist_data$value)[1]
+binwidth <- .16
+
+# Plot the labelled histogram with ggplot
+Labelled_histogram <- ggplot(hist_data, aes(x = value, fill = jenks_bins)) +
+  xlim(minimum_x, 100) +
+  geom_histogram(binwidth=binwidth, color = "black", linewidth = 0.3) +  # Adjust binwidth as needed
+  scale_fill_viridis_d(
+    name = "Size of bias",
+    labels = formatted_labels,
+    na.translate = TRUE,
+    na.value = "gray"  # Set color for NA values
+  ) +
+  labs(x = "Size of bias", y = "Frequency") +
+  theme_plot_tufte() +
+  theme(
+    legend.text = element_text(size = 60),    # Increase legend text size
+    legend.title = element_text(size = 60),   # Increase legend title size
+    legend.position = "right",                # Optional: adjust legend position
+    axis.title.x = element_text(size = 63),   # Set font size for X-axis title
+    axis.title.y = element_text(size = 63),   # Set font size for Y-axis title
+    axis.text.x = element_text(size = 50),    # Font size for X-axis ticks
+    axis.text.y = element_text(size = 50)     # Font size for Y-axis ticks
+  )
+
+# Plot the unlabelled histogram with ggplot
+Unlabelled_histogram <- ggplot(hist_data, aes(x = value, fill = jenks_bins)) +
+  xlim(minimum_x ,100) +
+  geom_histogram(binwidth=binwidth, color = "black", linewidth = 0.3) +
+  scale_fill_viridis_d(
+    name = "Size of bias",
+    labels = formatted_labels,
+    na.translate = TRUE,
+    na.value = "gray",
+    guide = "none"
+  ) +
+  labs(x = "Size of bias", y = "Frequency") +
+  theme_plot_tufte() +
+  theme(
+    axis.title.x = element_text(size = 63),
+    axis.title.y = element_text(size = 63),
+    axis.text.x = element_text(size = 50),
+    axis.text.y = element_text(size = 50),
+    legend.position = "none" 
+  )
+
+Labelled_histogram
+Unlabelled_histogram
+```
+
+Saving labelled and unlabelled histograms
+
+```{r}
+# Saving labelled histogram
+write_output <- try(ggsave(file.path(Outputs, "/Histogram/Labelled_histogram.png"), plot = Labelled_histogram, bg = "white"))
+# Check if there were any errors during saving
+if (inherits(write_output, "try-error")) {
+  cat(paste0("Error saving: 'Labelled_histogram.png' in '", Outputs, "/Histogram'.\n"))
+  cat("Error message: ", as.character(write_output), "\n")
+} else {
+  cat(paste0("Labelled_histogram.png successfully created in '", Outputs, "/Histogram'.\n"))
+}
+
+# Saving unlabelled histogram
+write_output <- try(ggsave(file.path(Outputs, "/Histogram/Unlabelled_histogram.png"), plot = Unlabelled_histogram, bg = "white"))
+# Check if there were any errors during saving
+if (inherits(write_output, "try-error")) {
+  cat(paste0("Error saving: 'Unlabelled_histogram.png' in '", Outputs, "/Histogram'.\n"))
+  cat("Error message: ", as.character(write_output), "\n")
+} else {
+  cat(paste0("Unlabelled_histogram.png successfully created in '", Outputs, "/Histogram'.\n"))
+}
+```
+
+### 5.2. Adjusted unlabelled histograms (50, 60, 70, 80, 90)
+
+```{r}
+# Assign number of classes or divisions for plots
+# It was assigned in the set parameters section
+
+# Adjusted plot only if the minimum value is < 50
+if (minimum_x < 50)
+{
+  # min_x_values <- c(50, 60, 70, 80, 90)
+  min_x_values <- c(50)
+  
+  # Dividing data into intervals
+  jenks_breaks <- classIntervals(Bias_measurement$Bias*100, n = num_classes, style = "jenks")$brks
+  
+  # Assigns unique intervals
+  jenks_breaks <- unique(jenks_breaks)
+  print("Breaks:")
+  print(jenks_breaks)
+  
+  # Create a data frame with histogram information
+  hist_data <- data.frame(value = Bias_measurement$Bias*100)
+  
+  # Create a factor variable for color breaks
+  hist_data$jenks_bins <- cut(hist_data$value, breaks = jenks_breaks, include.lowest = TRUE)
+  
+  # Crear la paleta de colores viridis con el número de breaks - 1
+  jenks_colors <- viridis(length(jenks_breaks) - 1)
+  
+  # Obtener los niveles únicos de jenks_bins (en el orden en que aparecen)
+  unique_bins_ordered <- levels(hist_data$jenks_bins)
+  
+  # Asegurarse de que el número de colores coincida con el número de niveles únicos
+  if (length(jenks_colors) >= length(unique_bins_ordered)) {
+    # Asignar los colores a los niveles únicos
+    names(jenks_colors) <- unique_bins_ordered
+  } else {
+    warning("El número de colores en 'jenks_colors' es menor que el número de intervalos únicos.")
+  }
+  
+  # Manually format the legend labels
+  formatted_labels <- sapply(1:(length(jenks_breaks) - 1), function(i) {
+    paste0("[",
+           sprintf("%.1f", jenks_breaks[i]), ", ",
+           sprintf("%.1f", jenks_breaks[i + 1]), ")")
+  })
+  
+  binwidth <- .16
+  for (min_x in min_x_values) {
+    Adjusted_unlabelled_histogram <- ggplot(hist_data, aes(x = value, fill = jenks_bins)) +
+      xlim(min_x, 100) + # Establecer el límite inferior dinámicamente
+      geom_histogram(binwidth = binwidth, color = "black", linewidth = 0.3) +
+      scale_fill_manual(
+        name = "Size of bias",
+        values = jenks_colors,
+        labels = formatted_labels
+      ) +
+      labs(x = "Size of bias", y = "Frequency") +
+      theme_plot_tufte() +
+      theme(
+        axis.title.x = element_text(size = 63),
+        axis.title.y = element_text(size = 63),
+        axis.text.x = element_text(size = 50),
+        axis.text.y = element_text(size = 50),
+        legend.position = "none"
+      )
+    
+  
+  # Saving Adjusted_unlabelled_histogram_50
+  write_output <- try(ggsave(file.path(Outputs, paste0("/Histogram/Adjusted_unlabelled_histogram_", min_x, ".png")), plot = Adjusted_unlabelled_histogram, bg = "white"))
+  # Check if there were any errors during saving
+  if (inherits(write_output, "try-error")) {
+    cat(paste0("Error saving: 'Unlabelled_histogram_", min_x, ".png' in '", Outputs, "/Histogram'.\n"))
+    cat("Error message: ", as.character(write_output), "\n")
+  } else {
+    cat(paste0("Unlabelled_histogram_", min_x, ".png successfully created in '", Outputs, "/Histogram'.\n"))
+  }
+  Adjusted_unlabelled_histogram
+  }
+}
+```
+
+## 6.Spatial autocorrelation
+
+```{r}
+# Casting "Area_code" as integer in order to use left_join
+Boundaries <- Boundaries %>%
+  mutate(Area_code = as.integer(Area_code))
+
+Bias_map <- Boundaries %>% left_join(Bias_measurement, by = "Area_code") %>% st_as_sf() 
+Bias_map
+```
+
+Data missing treatment
+
+```{r}
+# MISSING VALUES ==================================================================
+# Check for missing values
+print(t(t(colSums(is.na(Bias_map)))))
+print(dim(Bias_map))
+
+Bias_map <- na.omit(Bias_map)
+
+print(t(t(colSums(is.na(Bias_map)))))
+print(dim(Bias_map))
+```
+
+### Spatial weights matrix
+
+Choose between:
+
+-   `'queen'` (queen neighbourhood)
+
+-   `'fbw'` (fixed band-width, weights as 1/d)
+
+-   `'knn'` (k nearest-neighbours, weights as 1/d)
+
+-   `'db'` (distance band, weights as 1/d)
+
+#### 6.1.Option 1: queen (modified to obtain the optimal snap parameter)
+
+```{r}
+
+  if ("Bias_w" %in% colnames(Bias_map)) {
+    Bias_map <- Bias_map[, !names(Bias_map) %in% "Bias_w"]
+  }
+  suffix <- '_w_queen'
+
+  # Extract the coordinates of the centroids (or your points)
+  coords <- st_coordinates(st_centroid(Bias_map))
+
+  # Define snap values to be tested
+  snap_values <- c(0.00001, 0.0001, 0.001, 0.01)
+
+  # Initialise a dataframe to store the results
+  snap_results_df <- data.frame(Snap_Value = numeric(),
+                                Subgraphs = numeric())
+
+  # Initialise variables to store the best snap and the minimum number of subgraphs
+  best_snap <- 0
+  min_subgraphs <- Inf  
+  
+    cat("--- Testing snap values for the Queen neighbourhood ---\n")
+  for (s_val in snap_values) {
+    cat(paste0("Testing snap = ", s_val, "...\n"))
+    nb_q_temp <- poly2nb(Bias_map, queen = TRUE, snap = s_val)
+    current_subgraphs <- n.comp.nb(nb_q_temp)$nc
+
+    cat(paste0("  -> Sub-graphs: ", current_subgraphs, "\n"))
+
+    # Store the results in the dataframe
+    snap_results_df <- rbind(snap_results_df,
+                             data.frame(Snap_Value = s_val,
+                                        Subgraphs = current_subgraphs))
+
+    # Update the best snap if we find a smaller number of sub-snapshots
+    # or the same number with a smaller snap
+    if (current_subgraphs < min_subgraphs) {
+      min_subgraphs <- current_subgraphs
+      best_snap <- s_val
+      nb_q <- nb_q_temp # Save the best neighbour list
+    } else if (current_subgraphs == min_subgraphs && s_val < best_snap) {
+      # If you have the same number of subgraphs, prefer the smaller snap.
+      best_snap <- s_val
+      nb_q <- nb_q_temp # Save the best neighbour list
+    }
+  }
+
+  cat(paste0("\n--- Optimal snap selected: ", best_snap, " (with ", min_subgraphs, " sub-graphs) ---\n"))
+
+  # Show the results dataframe
+  print("Table of snap results:")
+  snap_results_df$Snap_Value <- sprintf("%.5f", snap_results_df$Snap_Value) 
+  print(snap_results_df)
+  
+  ## Viewing Snap Results
+    snap_plot <- ggplot(snap_results_df, aes(x = factor(Snap_Value), y = Subgraphs, group = 1)) +
+  geom_line(color = "blue", size = 1.2) +
+  geom_point(color = "red", size = 3) +
+  geom_vline(xintercept = as.character(best_snap), linetype = "dashed", color = "darkgreen", size = 1) +
+  annotate("text", x = as.character(best_snap), y = max(snap_results_df$Subgraphs) * 0.9,
+           label = paste0("Optimal: ", best_snap), color = "darkgreen", vjust = -1, size = 15) + 
+  labs(title = "Number of Sub-graphs per Snap Value", 
+       x = "Snap Value (decimal degrees)", 
+       y = "Number of Disconnected Sub-graphs") + 
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 38),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.background = element_rect(fill = "white", colour = NA), 
+    plot.background = element_rect(fill = "white", colour = NA),  
+    axis.title = element_text(size = 34, face = "bold"), 
+    axis.text = element_text(size = 32) 
+  )
+
+  print(snap_plot)
+  
+  # Here, nb_q will already contain the list of neighbours generated with the best_snap
+  subgraphs <- min_subgraphs
+
+  # Create a row-standardised spatial weights matrix
+  w_matrix <- nb2listw(nb_q, style = "W", zero.policy = TRUE)
+
+  # Compute spatial lag
+  bias_w <- lag.listw(w_matrix, Bias_map$Bias, NAOK = TRUE)
+
+  # Save spatial lag in additional column
+  Bias_map$Bias_w <- bias_w
+
+  cat("The number of disconnected subgraphs for queen is: ", subgraphs, "\n")
+
+  Bias_map_queen  <- Bias_map
+  subgraphs_queen <- subgraphs
+  w_matrix_queen  <- w_matrix
+```
+
+Saving queen analysis
+
+```{r}
+  # Try to write the CSV file and save the result.
+  write_output <- try(write.csv(snap_results_df, file.path(Outputs,paste0("Queen_Analysis_",best_snap, ".csv")), fileEncoding = "latin1", row.names = FALSE))
+  # Check if there were any errors during writing
+  if (inherits(write_output, "try-error")) {
+    cat(paste0("Error saving: 'Queen_Analysis_",best_snap, ".csv' in '", Outputs, "'.\n"))
+    cat("Error message: ", as.character(write_output), "\n")
+  } else {
+    cat(paste0("Queen_Analysis_",best_snap, ".csv successfully created in '", Outputs, "'.\n"))
+  }
+
+  write_output <- try(ggsave(paste0(Outputs,"/Queen_plot.png"), snap_plot))
+  # Check if there were any errors during saving
+  if (inherits(write_output, "try-error")) {
+    cat(paste0("Error saving: 'Queen_plot.png' in '", Outputs,".\n"))
+    cat("Error message: ", as.character(write_output), "\n")
+  } else {
+    cat(paste0("Queen_plot.png successfully created in '", Outputs,".\n"))
+  }
+```
+
+#### 6.2.Option 2: finding optimal fixed band width using `gwr.sel()` function from `spgwr` package
+
+```{r}
+  if ("Bias_w" %in% colnames(Bias_map)) {
+    Bias_map <- Bias_map[, !names(Bias_map) %in% "Bias_w"]
+  }
+  suffix <- '_w_fbw'
+  coords <- st_coordinates(st_centroid(Bias_map))
+  # find optimal kernel bandwidth using cross validation
+  fbw <- gwr.sel(Map_bias ~ 1, 
+                 data = Bias_map, 
+                 coords=cbind( coords[, "X"], coords[, "Y"]),
+                 longlat = TRUE,
+                 adapt = FALSE, 
+                 gweight = gwr.Gauss, 
+                 verbose = FALSE)
+  # Create a distance-based neighbors list with a minimum distance of 0 and maximum   distance given by fbw
+  nb_d <- dnearneigh(st_coordinates(st_centroid(Bias_map)), d1=0, d2=fbw)
+  # Subgraphs
+  subgraphs <- n.comp.nb(nb_d)$nc
+  # Create a row-standardised spatial weights matrix using distance-based neighbors
+  w_matrix <- nb2listw(nb_d, style = "W", zero.policy=TRUE)
+  # WARNING!!!!! This weights matrix leaves too many observations disconnected. Below we print the percentage of observations with no neighbors:
+  # Find the number of observations with zero neighbors
+  zero_neighbors_count <- sum(unlist(lapply(w_matrix$weights, length)) == 0)
+  zero_neighbors_count <- (zero_neighbors_count/nrow(Bias_map)*100)
+  zero_neighbors_count
+  # Compute spatial lag
+  bias_w <- lag.listw(w_matrix, Bias_map$Bias, NAOK=TRUE)
+  # Save spatial lag in additional column
+  Bias_map$Bias_w <- bias_w
+  
+  cat("The number of disconnected subgraphs for fbw is: ", subgraphs, "\n")
+  
+  Bias_map_fbw  <- Bias_map
+  subgraphs_fbw <- subgraphs
+  w_matrix_fbw  <- w_matrix
+```
+
+Fbw Modified
+
+```{r}
+  if ("Bias_w" %in% colnames(Bias_map)) {
+    Bias_map <- Bias_map[, !names(Bias_map) %in% "Bias_w"]
+  }
+  suffix <- '_w_fbwm'
+  coords <- st_coordinates(st_centroid(Bias_map))
+
+  # Step 1: Calculate the optimal bandwidth for GWR
+  cat("Calculating optimal bandwidth (fbw) with gwr.sel...\n")
+  fbw <- gwr.sel(Map_bias ~ 1,
+                 data = Bias_map,
+                 coords = cbind(coords[, "X"], coords[, "Y"]),
+                 longlat = TRUE,
+                 adapt = FALSE, 
+                 gweight = gwr.Gauss,
+                 verbose = FALSE)
+  cat(paste0("Optimal GWR bandwidth (fbw): ", round(fbw, 5), " degrees\n"))
+
+  # Step 2: Calculate the critical distance threshold to ensure connectivity --
+  # This ensures that each observation has at least one neighbour.
+  cat("Calculating critical distance threshold for connectivity...\n")
+  k1 <- knn2nb(knearneigh(coords))
+  critical_threshold_for_connectivity <- max(unlist(nbdists(k1, coords)))
+  cat(paste0("Critical threshold for full connectivity: ", round(critical_threshold_for_connectivity, 5), " degrees\n"))
+
+  # Step 3: Select the final bandwidth (the greater of fbw and critical_threshold)
+  # This ensures that the weight matrix will be connected, while respecting the fbw if it is already connected.
+  final_bandwidth <- max(fbw, critical_threshold_for_connectivity)
+  cat(paste0("Final bandwidth selected for the weight matrix: ", round(final_bandwidth, 5), " degrees\n"))
+
+  # Step 4: Create the neighbour list using the selected final bandwidth
+  nb_d <- dnearneigh(st_coordinates(st_centroid(Bias_map)), d1=0, d2=final_bandwidth)
+
+  # Step 5: Calculate the number of sub-graphs with the final bandwidth
+  # This should be 1 if the logic of max(fbw, critical_threshold) is working
+  subgraphs <- n.comp.nb(nb_d)$nc
+
+  # Step 6: Create the normalised spatial weights matrix
+  w_matrix <- nb2listw(nb_d, style = "W", zero.policy=TRUE)
+
+  # Step 7: Recheck observations with no neighbours (should be 0 if subgraphs is 1)
+  zero_neighbors_count <- sum(unlist(lapply(w_matrix$weights, length)) == 0)
+  percentage_zero_neighbors <- (zero_neighbors_count / nrow(Bias_map) * 100)
+  cat(paste0("Percentage of observations without neighbours (after adjustment):  ", round(percentage_zero_neighbors, 2), "%\n"))
+
+  # --- Paso 8: Compute spatial lag ---
+  bias_w <- lag.listw(w_matrix, Bias_map$Bias, NAOK=TRUE)
+
+  # --- Paso 9: Save spatial lag in additional column ---
+  Bias_map$Bias_w <- bias_w
+
+  cat("\n--- Results for the fbwm scheme ---\n")
+  cat("The number of disconnected sub-graphs for fbw is: ", subgraphs, "\n")
+  if (subgraphs == 1) {
+    cat("¡The spatial network is fully connected!\n")
+  } else {
+    cat("WARNING: The spatial graph still has disconnected ’, subgraphs, ’ sub-graphs.\n")
+  }
+
+  Bias_map_fbwm  <- Bias_map
+  subgraphs_fbwm <- subgraphs
+  w_matrix_fbwm  <- w_matrix
+```
+
+#### 6.3.Option 3: neighbourhoods based on k-nearest neighbours, weights as inverse of distance
+
+Searching for the optimum k and the lowest number of subgraphs
+
+```{r}
+  if ("Bias_w" %in% colnames(Bias_map)) {
+    Bias_map <- Bias_map[, !names(Bias_map) %in% "Bias_w"]
+  }
+  suffix <- '_w_knn'
+  
+  # === Extract the coordinates of the centroids (or your points)
+  coords <- st_coordinates(st_centroid(Bias_map))
+  
+  # === Range of k values to explore
+  k_values <- 1:20
+  
+  # === List for storing results
+  moran_results_list <- list()
+  
+  # === Variables for storing the best k and its weight matrix
+  best_k_combined <- NA
+  best_w_matrix_combined <- NULL
+  max_moran_abs_connected <- -Inf
+  min_components <- Inf
+  
+  # === Loop to iterate over the values of k
+  for (k in k_values)
+  {
+    # Create k-Nearest Neighbors list with k = k
+    nb_knn <- knearneigh(coords, k = k)
+
+    # Convertir la lista de k-vecinos a lista de vecindad
+    w_knn <- knn2nb(nb_knn)
+
+    # Compute distances from observation to neighbours
+    k.distances <- nbdists(w_knn, coords)
+
+    # Calculate weights as the inverse of the distance
+  invd_list <- lapply(k.distances, function(x) if (length(x) > 0) (1/(x/100)) else numeric(0))
+
+  # Create the normalised spatial weights matrix
+  w_matrix <- nb2listw(w_knn, glist = invd_list, style = "W")
+  
+  # Calculate Moran's Index I (analytical test)
+  moran_test <- moran.test(Bias_map$Bias, w_matrix)
+  current_moran_abs <- abs(moran_test$estimate[["Moran I statistic"]])
+
+  # Calculate the number of disconnected subgraphs
+  num_components <- n.comp.nb(w_knn)$nc
+
+  # Store the results in the list
+  moran_results_list[[as.character(k)]] <- data.frame(
+    k = k,
+    Moran.I = moran_test$estimate[["Moran I statistic"]],
+    p.value = moran_test$p.value,
+    Subgraphs = num_components
+  )
+
+  # Updating the best k based on the combined criteria
+  if (num_components < min_components) {
+    min_components <- num_components
+    max_moran_abs_connected <- current_moran_abs
+    best_k_combined <- k
+    best_w_matrix_combined <- w_matrix
+  } else if (num_components == min_components && current_moran_abs > max_moran_abs_connected) {
+    max_moran_abs_connected <- current_moran_abs
+    best_k_combined <- k
+    best_w_matrix_combined <- w_matrix
+  }
+
+  # Print the results for each k
+  cat(paste("k =", k, ", Moran's I =", round(moran_test$estimate[["Moran I statistic"]], 4), ", p-value =", round(moran_test$p.value, 4), ", Subgraphs =", num_components, "\n"))
+  }
+  
+  # Create the results dataframe
+  moran_results_df <- do.call(rbind, moran_results_list)
+
+  # Show he results dataframe
+  moran_results_df$p.value <- sprintf("%.10f", moran_results_df$p.value)
+  print("\nResults of the iterations:")
+  print(moran_results_df)
+
+  # Print the optimal value of k (combined criteria)
+  cat(paste("\nThe optimal k-value (based on lower number of subgraphs and higher absolute value of Moran's I-index) is:", best_k_combined, "\n"))
+  
+    # --- Calculate and display Moran's I-index and the p-value for the combined optimal k ---
+if (!is.null(best_w_matrix_combined)) {
+  best_moran_test_combined <- moran.test(Bias_map$Bias, best_w_matrix_combined)
+  cat(paste("Índice I de Moran para k =", best_k_combined, ":", round(best_moran_test_combined$estimate[["Moran I statistic"]], 4), "\n"))
+  cat(paste("p-value para k =", best_k_combined, ":", round(best_moran_test_combined$p.value, 4), "\n"))
+
+  # Monte Carlo test for the combined optimum k
+  mc_best_k_combined <- moran.mc(Bias_map$Bias, best_w_matrix_combined, nsim = 999, alternative = "two.sided")
+  print(paste("\nMonte Carlo test for k =", best_k_combined, ":"))
+  print(mc_best_k_combined)
+  print(paste("P-value (Monte Carlo) for k =", best_k_combined, ":", mc_best_k_combined$p.value))
+
+  # Calculate the spatial lag using the optimal weighting matrix (combined criteria)
+  bias_lag_optimal_k_combined <- lag.listw(best_w_matrix_combined, Bias_map$Bias, NAOK=TRUE)
+  print("\nSpatial Lag of bias using the optimal weighting matrix (combined criteria):")
+  print(head(bias_lag_optimal_k_combined)) # Display the first rows of the spatial lag
+} else {
+  cat("No valid values for k.\n")
+}
+  
+
+  # --- Display of the results ---
+  # Function to apply common themes and improve readability
+  my_theme <- function() {
+    theme_bw() +
+      theme(
+        plot.title = element_text(size = 28, face = "bold"), # Título del gráfico
+        axis.title = element_text(size = 26), # Títulos de los ejes (x e y)
+        axis.text = element_text(size = 24) # Etiquetas de los ejes (números/valores)
+        # legend.title = element_text(size = 14), # Si tuvieras leyendas
+        # legend.text = element_text(size = 12)  # Si tuvieras leyendas
+      )
+  }
+  results_df <- do.call(rbind, lapply(moran_results_list, as.data.frame))
+  
+  img_morans <- ggplot(results_df, aes(x = k, y = Moran.I)) +
+    geom_line() +
+    geom_point() +
+    geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+    labs(title = "Moran's I-index for different values of k",
+         x = "Number of neighbours (k)",
+         y = "Moran Index I") +
+    my_theme() 
+  
+  img_pvalue <- ggplot(results_df, aes(x = k, y = p.value)) +
+    geom_line() +
+    geom_point() +
+    geom_hline(yintercept = 0.05, linetype = "dashed", color = "blue") +
+    labs(title = "P-value of the Moran I-index for different values of k",
+         x = "Number of neighbours (k)",
+         y = "P-value") +
+    my_theme() 
+  
+  img_subgraphs <- ggplot(results_df, aes(x = k, y = Subgraphs)) +
+    geom_line() +
+    geom_point() +
+    scale_y_continuous(breaks = function(x) floor(min(x)):ceiling(max(x))) +
+    labs(title = "Number of Disconnected Subgraphs per value of k",
+         x = "Number of neighbours (k)",
+         y = "Number of Subgraphs") +
+    my_theme() +
+    ylim(floor(min(results_df$Subgraphs)) - 0.5, ceiling(max(results_df$Subgraphs)) + 0.5)
+  
+  # --- La matriz de pesos óptima (combinada) está en 'best_w_matrix_combined'
+  # --- y el spatial lag en 'bias_lag_optimal_k_combined' ---
+  # --- El dataframe de resultados está en 'moran_results_df' ---
+  best_k_combined
+  
+  img_morans
+  img_pvalue
+  img_subgraphs
+  
+  knn_figure <- img_morans + img_pvalue + img_subgraphs
+  knn_figure 
+```
+
+Saving knn analysis
+
+```{r}
+  # Try to write the CSV file and save the result.
+  write_output <- try(write.csv(moran_results_df, file.path(Outputs,paste0("Knn_Analysis_",best_k_combined, ".csv")), fileEncoding = "latin1", row.names = FALSE))
+  # Check if there were any errors during writing
+  if (inherits(write_output, "try-error")) {
+    cat(paste0("Error saving: 'Knn_Analysis_",best_k_combined, ".csv' in '", Outputs, "'.\n"))
+    cat("Error message: ", as.character(write_output), "\n")
+  } else {
+    cat(paste0("Knn_Analysis_",best_k_combined, ".csv successfully created in '", Outputs, "'.\n"))
+  }
+
+  write_output <- try(ggsave(paste0(Outputs,"/Knn_plots.png"), knn_figure, width = 18, height = 6, units = "in"))
+  # Check if there were any errors during saving
+  if (inherits(write_output, "try-error")) {
+    cat(paste0("Error saving: 'Knn_plots.png' in '", Outputs,".\n"))
+    cat("Error message: ", as.character(write_output), "\n")
+  } else {
+    cat(paste0("Knn_plots.png successfully created in '", Outputs,".\n"))
+  }
+```
+
+Generating the matrix of weights
+
+```{r}
+  if ("Bias_w" %in% colnames(Bias_map)) {
+    Bias_map <- Bias_map[, !names(Bias_map) %in% "Bias_w"]
+  }
+  suffix <- '_w_knn'
+  # Extract the coordinates of the centroids (or your points)
+  coords <- st_coordinates(st_centroid(Bias_map))
+  # Create k-Nearest Neighbors list with k = 10 (using centroids of a spatial object)
+  nb_knn <- knearneigh(coords, k = best_k_combined)
+  # Create weights matrix with equal weights
+  w_knn <- knn2nb(nb_knn)
+  # Subgraphs
+  subgraphs <- n.comp.nb(w_knn)$nc
+  # Compute distances from observation to neighbours
+  k.distances <- nbdists(w_knn, coords)
+  # Use these distances as weights
+  invd2a <- lapply(k.distances, function(x) (1/(x/100)))
+  # Create weights matrix with weights as 1/d, normalised
+  w_matrix <- nb2listw(w_knn, glist = invd2a, style = "W")
+  # Compute spatial lag
+  bias_w <- lag.listw(w_matrix, Bias_map$Bias, NAOK=TRUE)
+  # Save spatial lag in additional column
+  Bias_map$Bias_w <- bias_w
+  
+  
+  cat("The number of disconnected subgraphs for the optimal k (", best_k_combined, ") is: ", subgraphs, "\n")
+  
+  Bias_map_knn  <- Bias_map
+  subgraphs_knn <- subgraphs
+  w_matrix_knn  <- w_matrix
+```
+
+#### 6.4.Option 4: neighbourhoods based on distance band (set by user, unlike fbw which is "optimally" computed), weights as inverse of distance
+
+```{r}
+  if ("Bias_w" %in% colnames(Bias_map)) {
+    Bias_map <- Bias_map[, !names(Bias_map) %in% "Bias_w"]
+  }
+  suffix <- '_w_db'
+  # Extract the coordinates of the centroids (or your points)
+  coords <- st_coordinates(st_centroid(Bias_map))
+  # Compute distance band to ensure that all the observations have neighbours
+  k1 <- knn2nb(knearneigh(coords))
+  critical.threshold <- max(unlist(nbdists(k1, coords)))
+  # Compute lists of neighbours 
+  nb.dist.band <- dnearneigh(coords, 0, critical.threshold)
+  # Subgraphs
+  subgraphs <- n.comp.nb(nb.dist.band)$nc
+  # Compute distances
+  distances <- nbdists(nb.dist.band, coords)
+  # Compute inverse distances
+  invd1a <- lapply(distances, function(x) (1/(x/100)))
+  # Compute spatial weights matrix, normalised
+  w_matrix <- nb2listw(nb.dist.band, glist = invd1a, style = "W", zero.policy=TRUE)
+  # Compute spatial lag
+  bias_w <- lag.listw(w_matrix, Bias_map$Bias, NAOK=TRUE)
+  # Save spatial lag in additional column
+  Bias_map$Bias_w <- bias_w
+  
+  cat("The number of disconnected subgraphs for db is: ", subgraphs, "\n")
+  
+  Bias_map_db  <- Bias_map
+  subgraphs_db <- subgraphs
+  w_matrix_db  <- w_matrix
+```
+
+#### Save data with spatial lag
+
+```{r}
+for (w_scheme in w_schemes)
+{
+  bias_map_name <- paste0("Bias_map_", w_scheme)
+  current_Bias_map <- get(bias_map_name)
+  
+  write_output <- try({
+    write.csv(st_drop_geometry(current_Bias_map),
+              file = file.path(Outputs, paste0("Active_population_bias_", w_scheme, ".csv")),
+              fileEncoding = "latin1",
+              row.names = FALSE)
+  })
+  
+  # Check if there were any errors during writing
+  if (inherits(write_output, "try-error")) {
+    cat(paste0("Error saving: 'Active_population_bias_", w_scheme, ".csv' in '", Outputs, "'.\n"))
+    cat("Error message: ", as.character(write_output), "\n")
+  } else {
+    cat(paste0("Active_population_bias_", w_scheme, ".csv successfully created in '", Outputs, "'.\n"))
+  }
+}
+#rm(list = paste0("Bias_map_", w_schemes))
+```
+
+### Moran's I, p_value & Z-score (only for spatial cases)
+
+```{r}
+# Final dataframe
+all_moran_results <- data.frame(
+  Scheme = character(),
+  Moran_I_mc = numeric(),
+  P_value_mc = numeric(),
+  Subgraphs = integer(),
+  Moran_I_test = numeric(),
+  Expected_Moran_I = numeric(),
+  Variance_Moran_I = numeric(),
+  P_value_test = numeric(),
+  Z_score = numeric(),
+  stringsAsFactors = FALSE
+)
+
+for (w_scheme in w_schemes) {
+  # Build variable names dynamically
+  bias_map_name <- paste0("Bias_map_", w_scheme)
+  w_matrix_name <- paste0("w_matrix_", w_scheme)
+  subgraphs_name <- paste0("subgraphs_", w_scheme)
+
+  # Use get() to get the actual objects by their names
+  current_Bias_map <- get(bias_map_name)
+  current_w_matrix <- get(w_matrix_name)
+  current_subgraphs <- get(subgraphs_name)
+
+  cat(paste0("\n--- Processing scheme: ", w_scheme, " ---\n"))
+
+  # Moran's I Monte Carlo test
+  result <- moran.mc(current_Bias_map$Bias, current_w_matrix, nsim = 1000, alternative = "two.sided", zero.policy = TRUE)
+
+  # Extract Moran's I and p-value
+  mI <- as.numeric(result$statistic)
+  p_value_mI <- as.numeric(result$p.value)
+  print(paste("P_value (moran.mc) =", p_value_mI))
+  print(paste("mI (moran.mc)      =", mI))
+
+  # Execute moran.test()
+  moran_test_result <- moran.test(current_Bias_map$Bias, current_w_matrix, alternative = "two.sided", zero.policy = TRUE)
+
+  # Extracts the Z-score
+  z_score_mI <- as.numeric(moran_test_result$statistic)
+  expected_mI <- as.numeric(moran_test_result$estimate["Expectation"])
+  variance_mI <- as.numeric(moran_test_result$estimate["Variance"])
+
+  # Extracts Moran's I observed and p-value
+  observed_mI_test <- as.numeric(moran_test_result$estimate["Moran I statistic"])
+  p_value_test <- as.numeric(moran_test_result$p.value)
+
+  # Collect the results in one row for the final data.frame 
+  # Create a row with the results for the current scheme
+  current_row <- data.frame(
+    Scheme = w_scheme,
+    Moran_I_mc = mI,
+    P_value_mc = p_value_mI,
+    Subgraphs = as.integer(current_subgraphs),
+    Moran_I_test = observed_mI_test,
+    Expected_Moran_I = expected_mI,
+    Variance_Moran_I = variance_mI,
+    P_value_test = p_value_test,
+    Z_score = z_score_mI,
+    stringsAsFactors = FALSE
+  )
+
+  # Add this row to the main data.frame
+  all_moran_results <- rbind(all_moran_results, current_row)
+
+  # code to save individual CSVs
+  Moran_Pvalue_individual <- data.frame(
+    Statistic = c(
+      "Moran's I (moran.mc)", 
+      "P_value (moran.mc)", 
+      "Subgraphs",
+      "Moran's I (moran.test)", 
+      "Expected Moran's I", 
+      "Variance of Moran's I",
+      "P_value (moran.test)", 
+      "Z-score"
+    ),
+    Value = c(
+      mI, 
+      p_value_mI, 
+      as.integer(current_subgraphs),
+      observed_mI_test, 
+      expected_mI, 
+      variance_mI,
+      p_value_test, 
+      z_score_mI
+    )
+  )
+  Moran_Pvalue_individual$Value <- format(Moran_Pvalue_individual$Value, scientific = FALSE, digits = 20) 
+  print("DataFrame Moran_Pvalue_individual formatted (to text):")
+  print(Moran_Pvalue_individual)
+
+  if(FALSE)
+  {
+  write_output <- try({
+    write.csv(
+      Moran_Pvalue_individual,
+      file = file.path(Outputs, paste0("Moran_Pvalue_", w_scheme, ".csv")),
+      fileEncoding = "latin1",
+      row.names = FALSE
+    )
+  })
+
+  if (inherits(write_output, "try-error")) {
+    cat(paste0("Error saving: 'Moran_Pvalue_", w_scheme, ".csv' in '", Outputs, "'.\n"))
+    cat("Error message: ", as.character(write_output), "\n")
+  } else {
+    cat(paste0("Moran_Pvalue_", w_scheme, ".csv successfully created in '", Outputs, "'.\n"))
+  }
+  }
+}
+
+# Format and save the consolidated data.frame
+# Format the numeric columns of the consolidated data.frame to avoid scientific notation.
+# Exclude ‘Scheme’ and ‘Subgraphs’ as they do not need it.
+cols_to_format <- c("Moran_I_mc", 
+                    "P_value_mc", 
+                    "Moran_I_test",
+                    "Expected_Moran_I", 
+                    "Variance_Moran_I", 
+                    "P_value_test", 
+                    "Z_score")
+
+for (col_name in cols_to_format) {
+  if (col_name %in% names(all_moran_results)) {
+    all_moran_results[[col_name]] <- format(all_moran_results[[col_name]], scientific = FALSE, digits = 10)
+  }
+}
+
+cat("\n--- Data.frame of all Moran's I results")
+print(all_moran_results)
+
+# Saving final data.frame
+write_output_final <- try({
+  write.csv(
+    all_moran_results,
+    file = file.path(Outputs, "All_Moran_Pvalues.csv"),
+    fileEncoding = "latin1",
+    row.names = FALSE
+  )
+})
+
+if (inherits(write_output_final, "try-error")) {
+  cat(paste0("Error saving consolidated file: 'All_Moran_Pvalues.csv' in '", Outputs, "'.\n"))
+  cat("Error message: ", as.character(write_output_final), "\n")
+} else {
+  cat(paste0("All_Moran_Pvalues.csv successfully created in '", Outputs, "'.\n"))
+}
+```
+
+## 7.Map bias
+
+Original
+
+```{r}
+# Bias_map is defined in 6.Spatial autocorrelation section
+Bias_map
+
+# Dividing data into intervals
+jenks_breaks <- classIntervals(Bias_measurement$Bias*100, n = num_classes, style = "jenks")$brks
+
+# Assigns unique intervals
+jenks_breaks <- unique(jenks_breaks)
+print("Breaks:")
+print(jenks_breaks)
+
+# Create a new factor based on Jenks breaks
+Bias_map$jenks_bins <- cut(Bias_map$Map_bias, jenks_breaks, include.lowest = TRUE)
+
+Bias_map
+
+# Create a custom color palette from viridis
+jenks_colors <- viridis(length(jenks_breaks) - 1)
+
+# Manually format the legend labels to avoid scientific notation
+formatted_labels <- sapply(1:(length(jenks_breaks) - 1), function(i) {
+  paste0("[", 
+         sprintf("%.1f", jenks_breaks[i]), ", ", 
+         sprintf("%.1f", jenks_breaks[i + 1]), ")")
+})
+print("Labels:")
+print(formatted_labels)
+# Nonspatial
+{
+  Map_nonspatial <- ggplot(data = Bias_map) +
+  geom_sf(aes(fill = jenks_bins)) +
+  scale_fill_viridis_d(name = "Size of bias",
+  labels = formatted_labels,
+  na.translate = TRUE,
+  na.value = "gray") +  # Set color for NA values
+  labs(title = " ") +
+  theme_map_tufte() +
+  theme(
+    legend.text = element_text(size = 60),
+    legend.title = element_text(size = 60),
+    legend.position = "right"
+  )
+}
+
+# Saving 
+w_scheme <- "nonspatial"
+write_output <- try(ggsave(file.path(Outputs, paste0("/Map/Map_", w_scheme,".png")), plot = Map_nonspatial, bg = "white"))
+# Check if there were any errors during saving
+if (inherits(write_output, "try-error")) {
+  cat(paste0("Error saving: 'Map_", w_scheme,".png' in '", Outputs, "/Map'.\n"))
+  cat("Error message: ", as.character(write_output), "\n")
+} else {
+  cat(paste0("Map_", w_scheme,".png successfully created in '", Outputs, "/Map'.\n"))
+}
+
+# BUCLE
+
+for (w_scheme in w_schemes) {
+  # Gets the current Bias_map (‘sf’ object)
+  bias_map_name <- paste0("Bias_map_", w_scheme)
+  current_Bias_map <- get(bias_map_name)
+
+  # --- GET mI and p_value_mI FROM all_moran_results ---
+  # Filter ‘all_moran_results’ for the row corresponding to the current scheme
+  current_moran_stats <- all_moran_results[all_moran_results$Scheme == w_scheme, ]
+
+    # Checks if data was found for the current scheme
+  if (nrow(current_moran_stats) == 0) {
+    cat(paste0("Warning: No Moran statistics were found for the scheme ", w_scheme, ". Map generation is omitted.\n"))
+    next # Goes to the next iteration of the loop
+  }
+
+  # Extracts the values of mI and p_value_mI from the filtered row
+  mI <- as.numeric(current_moran_stats$Moran_I_mc)
+  p_value_mI <- as.numeric(current_moran_stats$P_value_mc) # Using P_value from moran.mc
+
+  cat(paste0("\n--- Generating map for the scheme:: ", w_scheme, " ---\n"))
+
+  # Assign ‘jenks_bins’ to current_Bias_map
+  current_Bias_map$jenks_bins <- cut(current_Bias_map$Map_bias, jenks_breaks, include.lowest = TRUE)
+
+  # Prepare the annotation for the map
+    p_annotation <- ifelse(p_value_mI < 0.05, "p < 0.05", paste("p =", round(p_value_mI, 2)))
+  bbox <- st_bbox(Bias_map) 
+  xmin <- bbox["xmin"]
+  xmax <- bbox["xmax"]
+  ymin <- bbox["ymin"]
+  ymax <- bbox["ymax"]
+  annotation <- data.frame(
+      x = c(xmin + 0.5*(xmax-xmin), xmin + 0.5*(xmax-xmin)),
+      y = c(ymin + 1.25*(ymax-ymin), ymin + 1.15*(ymax-ymin)),
+      label = c(paste0("I = ", round(mI,2)), p_annotation)
+  )
+
+  # Build the map graphic
+  Map <- ggplot(data = current_Bias_map) +
+  geom_sf(aes(fill = jenks_bins)) +
+  scale_fill_viridis_d(name = "Size of bias",
+    labels = formatted_labels,
+    na.translate = FALSE,
+    na.value = "gray") +  # Set color for NA values
+    labs(title = " ") +
+    geom_text(data=annotation, aes(x=x, y=y, label=label),
+           color="black",
+           size=23,
+           angle=0,
+           fontface="bold",
+           family = "robotocondensed") +
+    theme_map_tufte() +
+    theme(
+      legend.text = element_text(size = 55),
+      legend.title = element_text(size = 55),
+      legend.position = "right",
+      axis.title = element_blank(),        # Remove axis titles
+      axis.text = element_blank(),         # Remove axis text
+      axis.ticks = element_blank()         # Remove axis ticks
+      )
+
+Map
+# Saving map
+map_filename <- file.path(Outputs, "Map", paste0("Map_", w_scheme, ".png"))
+write_output <- try(ggsave(map_filename, plot = Map, bg = "white"))
+# Check if there were any errors during saving
+if (inherits(write_output, "try-error")) {
+  cat(paste0("Error saving: 'Map_", w_scheme,".png' in '", Outputs, "/Map'.\n"))
+  cat("Error message: ", as.character(write_output), "\n")
+} else {
+  cat(paste0("Map_", w_scheme,".png successfully created in '", Outputs, "/Map'.\n"))
+  }
+}
+```
+
+## 8.Final figure
+
+```{r}
+# Paths
+map_path <- paste0(Outputs, "/Map/Map_nonspatial.png")
+unlabelled_histogram_path <- paste0(Outputs, "/Histogram/Unlabelled_histogram.png")
+adjusted_histogram_path <- paste0(Outputs, "/Histogram/Adjusted_unlabelled_histogram_50.png")
+scatter_path <- paste0(Outputs,"/Scatter/Scatter.png")
+
+# LOAD IMAGES
+# ====================================================================== img1 (map)
+if (file.exists(map_path)){
+  img1 <- image_read(map_path)
+  message("File uploaded: Map_nonspatial.png")
+} else {
+  message("Map_nonspatial.png not found.")
+}
+# ============================================================== img2 (histogram)
+if (file.exists(adjusted_histogram_path)) {
+  img2 <- image_read(adjusted_histogram_path)
+  message("File uploaded: Adjusted_unlabelled_histogram_50.png")
+} else {
+  if (file.exists(unlabelled_histogram_path)) {
+    img2 <- image_read(unlabelled_histogram_path)
+    message("File uploaded: Unlabelled_histogram.png")
+  } else {
+    stop("Not Adjusted_unlabelled_histogram_50.png nor Unlabelled_histogram.png were found in the path.")
+  }
+}
+
+# =================================================================img3 (scatter)
+if (file.exists(scatter_path)){
+  img3 <- image_read(scatter_path)
+  message("File uploaded: Scatter.png")
+} else {
+  message("Scatter.png not found.")
+}
+# ================================================================= JOIN
+# Join images
+Final_figure <- image_append(c(img1, img2, img3))
+Final_figure 
+```
+
+```{r}
+# Saving Final figure
+write_output <- try(image_write(Final_figure, paste0(Outputs,"/Final_figure.png")))
+# Check if there were any errors during saving
+if (inherits(write_output, "try-error")) {
+  cat(paste0("Error saving: 'Final_figure.png' in '", Outputs,".\n"))
+  cat("Error message: ", as.character(write_output), "\n")
+} else {
+  cat(paste0("Final_figure.png successfully created in '", Outputs,".\n"))
+}
+```
+
+```{r}
+
+route_csv_01 <- paste0(Outputs,"/Active_population_bias_nonspatial.csv")
+route_csv_02 <- paste0(Outputs,"/Active_population_bias_queen.csv")
+route_csv_03 <- paste0(Outputs,"/Active_population_bias_fbw.csv")
+route_csv_04 <- paste0(Outputs,"/Active_population_bias_knn.csv")
+route_csv_05 <- paste0(Outputs,"/Active_population_bias_db.csv")
+
+col_01A <- "Bias"   
+col_01B <- "bias"   
+
+col_02A <- "Bias_w"       
+col_02B <- "bias_w"
+# Nonspatial
+if (file.exists(route_csv_01)){
+  data <- read.csv(route_csv_01, stringsAsFactors = FALSE)
+  if (col_01A %in% names(data)) {
+    new_data <- data %>%
+      rename(!!sym(col_01B) := !!sym(col_01A))
+  }
+  write.csv(new_data, route_csv_01, row.names = FALSE)
+}
+# Queen
+if (file.exists(route_csv_02)){
+  data <- read.csv(route_csv_02, stringsAsFactors = FALSE)
+  if (col_01A %in% names(data) && col_02A %in% names(data)) {
+    new_data <- data %>%
+      rename(!!sym(col_01B) := !!sym(col_01A),
+             !!sym(col_02B) := !!sym(col_02A))
+  }
+  write.csv(new_data, route_csv_02, row.names = FALSE)
+}
+# Fbw
+if (file.exists(route_csv_03)){
+  data <- read.csv(route_csv_03, stringsAsFactors = FALSE)
+  if (col_01A %in% names(data) && col_02A %in% names(data)) {
+    new_data <- data %>%
+      rename(!!sym(col_01B) := !!sym(col_01A),
+             !!sym(col_02B) := !!sym(col_02A))
+  }
+  write.csv(new_data, route_csv_03, row.names = FALSE)
+}
+# Knn
+if (file.exists(route_csv_04)){
+  data <- read.csv(route_csv_04, stringsAsFactors = FALSE)
+  if (col_01A %in% names(data) && col_02A %in% names(data)) {
+    new_data <- data %>%
+      rename(!!sym(col_01B) := !!sym(col_01A),
+             !!sym(col_02B) := !!sym(col_02A))
+  }
+  write.csv(new_data, route_csv_04, row.names = FALSE)
+}
+# Db
+if (file.exists(route_csv_05)){
+  data <- read.csv(route_csv_05, stringsAsFactors = FALSE)
+  if (col_01A %in% names(data) && col_02A %in% names(data)) {
+    new_data <- data %>%
+      rename(!!sym(col_01B) := !!sym(col_01A),
+             !!sym(col_02B) := !!sym(col_02A))
+  }
+  write.csv(new_data, route_csv_05, row.names = FALSE)
+}
+```
+
+```{r}
+# Limpia los objetos de ejemplo si es necesario
+#rm(list = c(
+#  paste0("Bias_map_", w_schemes),
+#  paste0("w_matrix_", w_schemes),
+#  paste0("subgraphs_", w_schemes)
+#))
+print("E N D    O F   M E A S U R E   B I A S ==================================")
+```
