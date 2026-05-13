@@ -1,0 +1,11 @@
+.DS_Store
+*.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.quarto/
+*_cache/
+*_files/
+*.html
+*.log
+Thumbs.db

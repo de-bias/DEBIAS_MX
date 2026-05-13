@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated paper and this repository."
+title: "One country, multiple portraits: representativeness in GPS-based mobility data is source-specific and spatially dependent"
+authors:
+  - name: "Carmen Cabrera, Francisco Rowe, Miguel González-Leonardo, Juan Ignacio Vilchis-García, Elisa Omodei and Maribel Hernández-Rosales"
+repository-code: "https://github.com/de-bias/DEBIAS_MX"
+date-released: "2026-05-13"
+license: "MIT"
