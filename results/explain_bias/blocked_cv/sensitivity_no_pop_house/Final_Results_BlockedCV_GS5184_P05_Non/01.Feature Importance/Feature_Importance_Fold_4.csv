@@ -1,0 +1,21 @@
+"Fold_ID","Feature_Label","Impact_SHAP_Value"
+4,"Internet",0.00127853101824364
+4,"Income",0.000220533221626614
+4,"Cell phone",0.000176361609354
+4,"Car",0.000122203924433569
+4,"University degree",0.000116068303653102
+4,"Population 0-14",9.45722009363718e-05
+4,"Extreme poverty",8.4812765164537e-05
+4,"Electricity",7.19989012875103e-05
+4,"Migrants",6.6040722629766e-05
+4,"Disability",6.2241954804567e-05
+4,"Female",5.85191372209178e-05
+4,"Poor housing conditions",5.23855660415284e-05
+4,"Poverty",5.23745973903121e-05
+4,"Mean occupants",5.21946330155163e-05
+4,"Working",5.19668538428858e-05
+4,"Literacy",4.3605410757104e-05
+4,"Vulnerable income",4.27563462782074e-05
+4,"Afrodescendants",4.06161009232424e-05
+4,"Indigenous language",4.04292039166092e-05
+4,"Population 15-39",3.70932584598763e-05
