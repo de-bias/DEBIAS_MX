@@ -47,6 +47,8 @@ See [data-availability.md](data-availability.md) for the data and code availabil
 
 ## Reproducibility Workflow
 
+See the [figure reproducibility guide](docs/figure-reproducibility.md) for the notebooks, settings and outputs associated with each manuscript figure and supplementary item. The [workflow overview](docs/workflow.md) explains upstream processing, model fitting and how to regenerate panels from saved results without refitting models. Both guides identify manual steps and remaining reproduction gaps.
+
 The workflows are written in R/Quarto. The main computational path is:
 
 1. Run [code/01_measure_bias/measure_bias_full.qmd](code/01_measure_bias/measure_bias_full.qmd) to compute representativeness bias from raw municipal population and active-population inputs.
