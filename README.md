@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/1237607269.svg)](https://doi.org/10.5281/zenodo.22677017)
+
 # One country, multiple portraits: representativeness in GPS-based mobility data is source-specific and spatially dependent
 
 This repository contains the data, code, model outputs, and supporting documentation for the paper: "One country, multiple portraits: representativeness in GPS-based mobility data is source-specific and spatially dependent"
@@ -92,3 +94,9 @@ Code is released under the [MIT License](LICENSE).
 ## Citation
 
 Please cite the associated paper and this repository if you use the data, code, or outputs. Citation metadata are provided in [CITATION.cff](CITATION.cff).
+
+The repository is archived on Zenodo. Cite the deposited release as:
+
+Cabrera, C., Rowe, F., González-Leonardo, M., Vilchis-García, J. I., Omodei, E., & Hernández-Rosales, M. (2026). *One country, multiple portraits: representativeness in GPS-based mobility data is source-specific and spatially dependent* (v1.0.0) [Software]. Zenodo. https://doi.org/10.5281/zenodo.22677018
+
+The DOI covering all versions is [10.5281/zenodo.22677017](https://doi.org/10.5281/zenodo.22677017).
